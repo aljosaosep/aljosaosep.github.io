@@ -1,0 +1,856 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title></title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)"> 
+<meta name="originator" content="TeX4ht (https://tug.org/tex4ht/)"> 
+<!-- html --> 
+<meta name="src" content="rss_2020_camready.tex"> 
+<link rel="stylesheet" type="text/css" href="rss_2020_camready.css"> 
+<link rel="stylesheet" href="https://latex.now.sh/style.min.css" />
+</head><body 
+>
+<!--l. 66--><p class="noindent" >
+                                                                                                  
+                                                                                                  
+<!--l. 66--><p class="indent" >
+                                                                                                  
+                                                                                                  
+<div class="center" 
+>
+<!--l. 66--><p class="noindent" >
+<!--l. 66--><p class="noindent" ><span 
+class="ptmr7t-x-x-240">Tracking Beyond Detection</span>
+<!--l. 66--><p class="noindent" >
+<!--l. 66--><p class="noindent" >                                                                              <span 
+class="ptmr7t-x-x-110">Aljo</span><span 
+class="ptmr7t-x-x-110">&#353;a O</span><span 
+class="ptmr7t-x-x-110">&#353;ep</span>
+                                                                     Dynamic Vision and Learning Group
+                                                                       Technical University of Munich
+                                                                         Email: aljosa.osep@tum.de
+</div>
+<!--l. 74--><p class="indent" >  Through object detection and tracking, autonomous systems become aware of their whereabouts and determine their future motion.
+The leading vision-based paradigms for multi-object tracking&#x00A0;[<a 
+href="#XChoi15ICCV">8</a>,&#x00A0;<a 
+href="#XBergmann19ICCV">3</a>] heavily relies on robust object detectors&#x00A0;[<a 
+href="#XRen15NIPS">35</a>,&#x00A0;<a 
+href="#XHe17ICCV">10</a>,&#x00A0;<a 
+href="#XRedmon16CVPR">34</a>], which i) can
+currently detect only object classes that are observed frequently and ii) are trained using huge quantities of carefully labeled
+samples.
+<!--l. 77--><p class="indent" >  On the other hand, mobile robots experience a continuous stream of sensory data and need to operate in a physical 3D world.
+Furthermore, our world is inherently open-set&#x00A0;[<a 
+href="#Xgeng20tpami">9</a>,&#x00A0;<a 
+href="#Xboult19AAAI">5</a>] and populated with unknown dynamic objects (Fig.&#x00A0;<a 
+href="#x1-3r1">1<!--tex4ht:ref: fig:covergirl --></a>). It is therefore crucial for
+future mobile robots to continuously model and learn from previously unseen objects &#8211; especially if they can move and pose a
+safety hazard. Motivated by these challenges, my main research drive is to enable future mobile robots to adapt to
+novel environments and to learn about objects and their behavioral patterns automatically, without exhaustive human
+supervision.
+<!--l. 85--><p class="indent" >  These goals are closely related to tasks such as representation learning from video&#x00A0;[<a 
+href="#XWang15ICCV">39</a>], weakly-supervised detector
+learning&#x00A0;[<a 
+href="#Xliang15ICCV">18</a>], zero-shot object recognition and detection&#x00A0;[<a 
+href="#XXian18TPAMI">40</a>,&#x00A0;<a 
+href="#XBansal18ECCV">2</a>], object class discovery&#x00A0;[<a 
+href="#XMoosmann11ICCVW">23</a>,&#x00A0;<a 
+href="#XLee10CVPR">17</a>,&#x00A0;<a 
+href="#XLee10CVPR">17</a>,&#x00A0;<a 
+href="#XKwak15ICCV">11</a>,&#x00A0;<a 
+href="#XKwak15ICCV">11</a>,&#x00A0;<a 
+href="#XHsu2018ICLR">12</a>] and learning
+object detectors from dominant video tubes&#x00A0;[<a 
+href="#XPrest12CVPR">33</a>]. The main difference to the aforementioned is that we are learning to
+segment, track, and recognize objects from a raw, continuous stream of sensory data, without any form of manual
+pre-processing. In our scenarios, objects of interest are not pre-localized, and we do not assume that videos contain a dominant,
+salient moving region &#8211; objects are interacting with each other and are continuously entering and leaving the sensing
+area.
+<a 
+ id="x1-2r1"></a>
+<!--l. 93--><p class="noindent" ><span 
+class="ptmrc7t-">I.  C<span 
+class="small-caps">u</span><span 
+class="small-caps">r</span><span 
+class="small-caps">r</span><span 
+class="small-caps">e</span><span 
+class="small-caps">n</span><span 
+class="small-caps">t</span> <span 
+class="small-caps">a</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span> P<span 
+class="small-caps">a</span><span 
+class="small-caps">s</span><span 
+class="small-caps">t</span> R<span 
+class="small-caps">e</span><span 
+class="small-caps">s</span><span 
+class="small-caps">e</span><span 
+class="small-caps">a</span><span 
+class="small-caps">r</span><span 
+class="small-caps">c</span><span 
+class="small-caps">h</span></span>
+<a 
+ id="Q1-1-0"></a>
+<!--l. 97--><p class="indent" >  At the core of robot perception is the ability to track and analyze the moving objects online. Via object tracking, mobile robots have
+the ability to foresee potential collisions and react to possibly harmful situations in time.
+<!--l. 100--><p class="indent" >  <hr class="figure"><div class="figure" 
+>
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+<!--l. 102--><p class="noindent" ><img 
+src="fig/4d.png" alt="PIC"  width="516"  > <a 
+ id="x1-3r1"></a> <span 
+class="ptmr7t-x-x-80">Fig.</span><span 
+class="ptmr7t-x-x-80">&#x00A0;1.</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0; The capability to perceive and react to unknown (dynamic) objects (marked a with red border) is vital in mobile robotics scenarios.</span>
+                                                                                                  
+                                                                                                  
+<!--l. 107--><p class="indent" >  </div><hr class="endfigure">
+<!--l. 109--><p class="noindent" ><span 
+class="ptmb7t-">Multi-Object Tracking.</span><span 
+class="ptmb7t-">&#x00A0;</span>&#x00A0;In&#x00A0;[<a 
+href="#XOsep17ICRA">25</a>], we proposed a method that lifts the detection-based multi-object tracking paradigm to 3D using an
+inexpensive stereo setup and that can detect, track, and localize surrounding objects in 3D space. Our system combines 2D object
+detections and stereo-based depth measurements to improve image-based tracking and, importantly, 3D localization. Our experiments
+show that the proposed method was on-par with state-of-the-art image-based tracking approaches and can localize objects in 3D
+robustly.
+                                                                                                  
+                                                                                                  
+<!--l. 114--><p class="indent" >  <hr class="float"><div class="float" 
+>
+                                                                                                  
+                                                                                                  
+ <img 
+src="fig/3D-viz-hz-3-.png" alt="PIC"  
+width="464"  > <a 
+ id="x1-4r2"></a>                <span 
+class="ptmr7t-x-x-80">Fig.</span><span 
+class="ptmr7t-x-x-80">&#x00A0;2.</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0; CAMOT</span><span 
+class="ptmr7t-x-x-80">&#x00A0;[</span><a 
+href="#XOsep18ICRA"><span 
+class="ptmr7t-x-x-80">26</span></a><span 
+class="ptmr7t-x-x-80">] and 4D-GVT</span><span 
+class="ptmr7t-x-x-80">&#x00A0;[</span><a 
+href="#XOsep20ICRA"><span 
+class="ptmr7t-x-x-80">29</span></a><span 
+class="ptmr7t-x-x-80">] localize tracked objects in 3D space and time.</span>
+                                                                                                  
+                                                                                                  
+  </div><hr class="endfloat" />
+<!--l. 123--><p class="indent" >  While the focus of that method was on online multi-object tracking and 3D object trajectory reconstruction, the recent trends in
+vision-based multi-object tracking are heading towards leveraging the representational power of deep learning. One of the major
+challenges in end-to-end learning of multi-object tracking is the lack of differentiable loss functions that directly correlate with
+established MOT evaluation measures&#x00A0;[<a 
+href="#XBernardin08JIVP">4</a>]. This stems from the fact that tracking evaluation necessitates establishing a matching
+between ground truth objects and track prediction &#8211; typically performed using the Hungarian algorithm, which contains
+non-differentiable operations. To this end, we proposed a trainable matching layer, inspired by Hungarian algorithm&#x00A0;[<a 
+href="#XKuhn55NRLQ">15</a>], that allows to
+back-propagate gradients to the tracking network and novel loss functions that directly correlate to established tracking evaluation
+measures&#x00A0;[<a 
+href="#XBernardin08JIVP">4</a>].
+<!--l. 134--><p class="noindent" ><span 
+class="ptmb7t-">Category-Agnostic Multi-Object Tracking and Video Object Mining.</span><span 
+class="ptmb7t-">&#x00A0; </span>The aforementioned methods follow the common paradigm
+for vision-based multi-object tracking, that extract object evidence from images using a pre-trained object detector, <span 
+class="ptmri7t-">e.g.</span>,&#x00A0;[<a 
+href="#XRen15NIPS">35</a>,&#x00A0;<a 
+href="#XHe17ICCV">10</a>,&#x00A0;<a 
+href="#XRedmon16CVPR">34</a>]. It
+is important to study multi-object tracking in a well-controlled, closed-set environment and dis-entangle object tracking performance
+from object recognition accuracy. However, obtaining reliable detectors for every possible object class will clearly not be feasible, as we
+can expect the frequency of object category observations to follow a power-law distribution with some object categories occurring very
+frequently and the vast majority being increasingly rare. To this end, we investigated vision-based generic multi-object
+tracking in the open-set world, where the set of object classes that need to be tracked and detected is unbounded, and
+we proposed CAMOT, a vision-based, Category-Agnostic Multi-Object Tracker&#x00A0;[<a 
+href="#XOsep18ICRA">26</a>]. This method leverages recent
+developments in learning-based object proposal generation and estimates trajectories of arbitrary objects. This has been largely
+inspired by the success of the early tracking-before-detection paradigm in the context of LiDAR-based multi-object
+tracking for autonomous driving&#x00A0;[<a 
+href="#XTeichman12IJRR">37</a>,&#x00A0;<a 
+href="#XMoosmann13ICRA">24</a>]; however, vision-based object instance segmentation of arbitrary objects is a
+very challenging and open research problem&#x00A0;[<a 
+href="#XPinheiro16ECCV">31</a>,&#x00A0;<a 
+href="#XPham18ECCV">30</a>], as we cannot rely on the reliable spatial proximity cues for
+grouping.
+<!--l. 156--><p class="indent" >  At the core of our approach is an efficient mask-based representation of tracked objects that can be simply lifted to 3D space in the
+presence of depth estimates (see Fig.&#x00A0;<a 
+href="#x1-4r2">2<!--tex4ht:ref: fig:viztd --></a>). This allows for a robust data association based on an estimated 3D motion vector and
+pixel-precise representation of the object tracks. CAMOT achieves comparable performance to detection-based methods for
+the known object classes in the camera near-range and can track a large variety of other objects. One of the critical
+components of this method is precise, segmentation-mask based data association &#8211; we investigated the impact of such
+representation for tracking in the follow-up work&#x00A0;[<a 
+href="#XVoigtlaender19CVPR">38</a>] and successfully applied this paradigm to the task of (unsupervised)
+video-object segmentation&#x00A0;[<a 
+href="#XLuiten18ACCV">20</a>,&#x00A0;<a 
+href="#XLuiten20WACV">21</a>]. In&#x00A0;[<a 
+href="#Xathar20arXiv">1</a>], we further demonstrate that by tracking objects in a category-agnostic manner by
+grouping spatio-temporal volumes, we can generalize across different tasks and datasets related to pixel-precise object
+tracking&#x00A0;[<a 
+href="#XVoigtlaender19CVPR">38</a>,&#x00A0;<a 
+href="#XCaelles19arXiv">6</a>,&#x00A0;<a 
+href="#XYang19ICCV">41</a>,&#x00A0;<a 
+href="#XPontTuset17arxiv">32</a>].
+<!--l. 165--><p class="indent" >  Beyond online tracking, we can use such an approach to fuse information across time from different views in an offline fashion and
+build a 3D semantic map of the world as a composition of dynamic objects. Such a fused map can be used to mine and discover
+unknown objects and their respective trajectories. In this line of work, we have proposed 4D Generic Video Object Proposals
+(4D-GVT)&#x00A0;[<a 
+href="#XOsep20ICRA">29</a>] for offline video object proposal generation, designed to mine objects from a large corpus of video data. 4D-GVT
+unifies two separate networks used in CAMOT for proposal generation and track classification. We have demonstrated that we
+can compensate for the absence of training data for generating video object proposals by combining learning-based
+methods and prior knowledge about parallax, motion, and appearance consistency in a probabilistic framework. 4D-GVT
+achieves remarkable generalization to unseen object classes. In particular, we obtain a better recall by training our
+method on the COCO dataset&#x00A0;[<a 
+href="#XLin14ECCV">19</a>] using information about <span 
+class="cmr-10">80 </span>object classes compared to the large-scale object instance
+segmentation method by&#x00A0;[<a 
+href="#XHu18CVPR">13</a>], which trains jointly on COCO and VisualGenome&#x00A0;[<a 
+href="#XKrishna16Arxiv">14</a>] datasets, containing labels for
+over <span 
+class="cmr-10">3</span><span 
+class="cmmi-10">,</span><span 
+class="cmr-10">000 </span>object classes. Additionally, in contrast to&#x00A0;[<a 
+href="#XHu18CVPR">13</a>], our approach precisely tracks each candidate object in 3D
+space.
+<!--l. 176--><p class="noindent" ><span 
+class="ptmb7t-">Video Object Discovery.</span><span 
+class="ptmb7t-">&#x00A0;</span>&#x00A0;In&#x00A0;[<a 
+href="#XOsep19ICRA">28</a>], we present a large-scale study for object mining and category discovery and show that our
+CAMOT&#x00A0;[<a 
+href="#XOsep18ICRA">26</a>] can be used for large-scale video object mining and discovery in automotive scenarios. In total, we mined roughly <span 
+class="cmr-10">10</span>
+hours of video data (from the Oxford RobotCar dataset&#x00A0;[<a 
+href="#XMaddern17IJRR">22</a>]) consisting of more than <span 
+class="cmr-10">560</span><span 
+class="cmmi-10">,</span><span 
+class="cmr-10">000 </span>frames. From this data, we extracted
+more than <span 
+class="cmr-10">360</span><span 
+class="cmmi-10">,</span><span 
+class="cmr-10">000 </span>object tracks. We used these tracks to evaluate the suitability of different feature representations and clustering
+strategies for object discovery. We published preliminary results on using these discovered clusters for self-supervised object detection
+in&#x00A0;[<a 
+href="#XOsep18ECCVW">27</a>].
+<a 
+ id="x1-5r2"></a>
+<!--l. 183--><p class="noindent" ><span 
+class="ptmrc7t-">II.  F<span 
+class="small-caps">u</span><span 
+class="small-caps">t</span><span 
+class="small-caps">u</span><span 
+class="small-caps">r</span><span 
+class="small-caps">e</span> W<span 
+class="small-caps">o</span><span 
+class="small-caps">r</span><span 
+class="small-caps">k</span></span>
+<a 
+ id="Q1-1-2"></a>
+<!--l. 185--><p class="noindent" ><span 
+class="ptmb7t-">Simultaneous Multi-Object Tracking, Localization, and Mapping.</span><span 
+class="ptmb7t-">&#x00A0;</span>&#x00A0;I am very thrilled by the future potential of my research area. In
+the near term, I plan to combine our trackers with methods for simultaneous localization and mapping (SLAM). Such fusion can benefit
+both fields of research. Multi-object tracking (MOT) could benefit from temporal integration of depth measurements and improve
+                                                                                                  
+                                                                                                  
+robustness to sensory failures (<span 
+class="ptmri7t-">e.g.</span>, extreme lighting and weather conditions). Existing vision-based SLAM methods could, via tracking,
+explicitly account for moving objects and estimate precisely the full 3D shape of tracked objects to improve 3D tracking precision. In
+addition to moving objects, our methods can track and localize static landmarks such as traffic signs, trees, road signs, markers,
+cones, etc., which could be used to improve the robustness of existing SLAM pipelines by incorporating object-level
+cues.
+<!--l. 188--><p class="noindent" ><span 
+class="ptmb7t-">Self-Supervised Object Detector Learning.</span><span 
+class="ptmb7t-">&#x00A0;</span>&#x00A0;I am planning to continue my research in the area of vision-based object discovery and
+self-supervised detector learning. By mining large video collections, we demonstrated&#x00A0;[<a 
+href="#XOsep19ICRA">28</a>] that we can group semantically similar
+objects and discover novel object classes via clustering. These clusters could then be used as a basis for learning new detectors without
+human supervision.
+<!--l. 191--><p class="noindent" ><span 
+class="ptmb7t-">Motion Prediction and Shape Completion.</span><span 
+class="ptmb7t-">&#x00A0;</span>&#x00A0;Our 4D video-object proposals&#x00A0;[<a 
+href="#XOsep20ICRA">29</a>] could be used for several tasks. These proposals do
+not only localize possible objects but also provide 3D localization of object trajectories and capture the evolution of 3D shape over
+time. I plan to investigate whether the estimated trajectories can be as a supervisory signal for predicting future motion&#x00A0;[<a 
+href="#XLee17CVPR">16</a>] and 3D
+shape-completion&#x00A0;[<a 
+href="#XStutz18CVPR">36</a>].
+<!--l. 199--><p class="noindent" ><span 
+class="ptmb7t-">Cross-modality Video Object Mining.</span><span 
+class="ptmb7t-">&#x00A0; </span>Thanks to new automotive datasets&#x00A0;[<a 
+href="#XCaesar19arXiv">7</a>], we believe there is significant potential in extending
+our methods towards leveraging different sensor modalities (cameras, LiDAR, RADAR) to mine novel object tracks from recently
+introduced large-scale automotive datasets.
+<!--l. 201--><p class="noindent" ><span 
+class="ptmb7t-x-x-80">Acknowledgements:</span><span 
+class="ptmb7t-x-x-80">&#x00A0; </span><span 
+class="ptmr7t-x-x-80">I would like to thank all my collaborators, especially my PhD advisor Bastian Leibe and PostDoc advisor Laura Leal-Taix</span><span 
+class="ptmr7t-x-x-80">é.</span>
+<!--l. 1--><p class="indent" >
+<!--l. 1--><p class="noindent" ><span 
+class="ptmrc7t-">R<span 
+class="small-caps">e</span><span 
+class="small-caps">f</span><span 
+class="small-caps">e</span><span 
+class="small-caps">r</span><span 
+class="small-caps">e</span><span 
+class="small-caps">n</span><span 
+class="small-caps">c</span><span 
+class="small-caps">e</span><span 
+class="small-caps">s</span></span>
+<!--l. 1--><p class="noindent" >
+   <div class="thebibliography">
+   <p class="bibitem" ><span class="biblabel">
+ <a 
+ id="Xathar20arXiv"></a><span 
+class="ptmr7t-x-x-80">[1]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Ali Athar, Sabarinath Mahadevan, Aljo</span><span 
+class="ptmr7t-x-x-80">&#353;a O</span><span 
+class="ptmr7t-x-x-80">&#353;ep, Laura Leal-Taix</span><span 
+class="ptmr7t-x-x-80">é, and Bastian Leibe. Stem-seg: Spatio-temporal embeddings for instance segmentation</span>
+   <span 
+class="ptmr7t-x-x-80">in videos.  </span><span 
+class="ptmri7t-x-x-80">arXiv arXiv:2003.08429</span><span 
+class="ptmr7t-x-x-80">, 2020.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+ <a 
+ id="XBansal18ECCV"></a><span 
+class="ptmr7t-x-x-80">[2]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Ankan Bansal, Karan Sikka, Gaurav Sharma, Rama Chellappa, and Ajay Divakaran.  Zero-shot object detection.  In </span><span 
+class="ptmri7t-x-x-80">ECCV</span><span 
+class="ptmr7t-x-x-80">, 2018.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+ <a 
+ id="XBergmann19ICCV"></a><span 
+class="ptmr7t-x-x-80">[3]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Philipp Bergmann, Tim Meinhardt, and Laura Leal-Taix</span><span 
+class="ptmr7t-x-x-80">é.  Tracking without bells and whistles.  In </span><span 
+class="ptmri7t-x-x-80">ICCV</span><span 
+class="ptmr7t-x-x-80">, 2019.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+ <a 
+ id="XBernardin08JIVP"></a><span 
+class="ptmr7t-x-x-80">[4]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Keni Bernardin and Rainer Stiefelhagen.  Evaluating multiple object tracking performance: The clear mot metrics.  </span><span 
+class="ptmri7t-x-x-80">JVIP</span><span 
+class="ptmr7t-x-x-80">, 2008:1:1&#8211;1:10, 2008.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+ <a 
+ id="Xboult19AAAI"></a><span 
+class="ptmr7t-x-x-80">[5]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">TE</span><span 
+class="ptmr7t-x-x-80">&#x00A0;Boult,  S</span><span 
+class="ptmr7t-x-x-80">&#x00A0;Cruz,  AR</span><span 
+class="ptmr7t-x-x-80">&#x00A0;Dhamija,  M</span><span 
+class="ptmr7t-x-x-80">&#x00A0;Gunther,  J</span><span 
+class="ptmr7t-x-x-80">&#x00A0;Henrydoss,  and  WJ</span><span 
+class="ptmr7t-x-x-80">&#x00A0;Scheirer.   Learning  and  the  unknown:  Surveying  steps  toward  open  world</span>
+   <span 
+class="ptmr7t-x-x-80">recognition.  In </span><span 
+class="ptmri7t-x-x-80">AAAI</span><span 
+class="ptmr7t-x-x-80">, 2019.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+ <a 
+ id="XCaelles19arXiv"></a><span 
+class="ptmr7t-x-x-80">[6]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Sergi Caelles, Jordi Pont-Tuset, Federico Perazzi, Alberto Montes, Kevis-Kokitsi Maninis, and Luc</span><span 
+class="ptmr7t-x-x-80">&#x00A0;Van Gool.  The 2019 DAVIS challenge on VOS:</span>
+   <span 
+class="ptmr7t-x-x-80">unsupervised multi-object segmentation.  </span><span 
+class="ptmri7t-x-x-80">arXiv arXiv:1905.00737</span><span 
+class="ptmr7t-x-x-80">, 2019.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+ <a 
+ id="XCaesar19arXiv"></a><span 
+class="ptmr7t-x-x-80">[7]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Holger Caesar, Varun Bankiti, Alex</span><span 
+class="ptmr7t-x-x-80">&#x00A0;H. Lang, Sourabh Vora, Venice</span><span 
+class="ptmr7t-x-x-80">&#x00A0;Erin Liong, Qiang Xu, Anush Krishnan, Yu</span><span 
+class="ptmr7t-x-x-80">&#x00A0;Pan, Giancarlo Baldan, and Oscar</span>
+   <span 
+class="ptmr7t-x-x-80">Beijbom.  nuScenes: A multimodal dataset for autonomous driving.  </span><span 
+class="ptmri7t-x-x-80">arXiv preprint arXiv:1903.11027</span><span 
+class="ptmr7t-x-x-80">, 2019.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+ <a 
+ id="XChoi15ICCV"></a><span 
+class="ptmr7t-x-x-80">[8]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Wongun Choi.  Near-online multi-target tracking with aggregated local flow descriptor.  In </span><span 
+class="ptmri7t-x-x-80">ICCV</span><span 
+class="ptmr7t-x-x-80">, 2015.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+ <a 
+ id="Xgeng20tpami"></a><span 
+class="ptmr7t-x-x-80">[9]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Chuanxing Geng, Sheng-jun Huang, and Songcan Chen.  Recent advances in open set recognition: A survey.  </span><span 
+class="ptmri7t-x-x-80">PAMI</span><span 
+class="ptmr7t-x-x-80">, 2020.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XHe17ICCV"></a><span 
+class="ptmr7t-x-x-80">[10]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Kaiming He, Georgia Gkioxari, Piotr Doll</span><span 
+class="ptmr7t-x-x-80">ár, and Ross Girshick.  Mask R-CNN.  In </span><span 
+class="ptmri7t-x-x-80">ICCV</span><span 
+class="ptmr7t-x-x-80">, 2017.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XKwak15ICCV"></a><span 
+class="ptmr7t-x-x-80">[11]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Yen-Chang Hsu, Zhaoyang Lv, and Zsolt Kira. Deep image category discovery using a transferred similarity function. </span><span 
+class="ptmri7t-x-x-80">arXiv preprint arXiv:1612.01253</span><span 
+class="ptmr7t-x-x-80">,</span>
+   <span 
+class="ptmr7t-x-x-80">2016.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XHsu2018ICLR"></a><span 
+class="ptmr7t-x-x-80">[12]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Yen-Chang Hsu, Zhaoyang Lv, and Zsolt Kira.  Learning to cluster in order to transfer across domains and tasks.  In </span><span 
+class="ptmri7t-x-x-80">ICLR</span><span 
+class="ptmr7t-x-x-80">, 2018.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XHu18CVPR"></a><span 
+class="ptmr7t-x-x-80">[13]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Ronghang Hu, Piotr Doll</span><span 
+class="ptmr7t-x-x-80">ár, Kaiming He, Trevor Darrell, and Ross Girshick.  Learning to Segment Every Thing.  In </span><span 
+class="ptmri7t-x-x-80">CVPR</span><span 
+class="ptmr7t-x-x-80">, 2018.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XKrishna16Arxiv"></a><span 
+class="ptmr7t-x-x-80">[14]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Ranjay Krishna, Yuke Zhu, Oliver Groth, Justin Johnson, Kenji Hata, Joshua Kravitz, Stephanie Chen, Yannis Kalantidis, Li-Jia Li, David</span><span 
+class="ptmr7t-x-x-80">&#x00A0;A Shamma,</span>
+                                                                                                  
+                                                                                                  
+   <span 
+class="ptmr7t-x-x-80">Michael  Bernstein,  and  Li</span><span 
+class="ptmr7t-x-x-80">&#x00A0;Fei-Fei.   Visual  genome:  Connecting  language  and  vision  using  crowdsourced  dense  image  annotations.   </span><span 
+class="ptmri7t-x-x-80">arXiv  preprint</span>
+   <span 
+class="ptmri7t-x-x-80">arXiv:1602.07332</span><span 
+class="ptmr7t-x-x-80">, 2016.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XKuhn55NRLQ"></a><span 
+class="ptmr7t-x-x-80">[15]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">H.</span><span 
+class="ptmr7t-x-x-80">&#x00A0;W. Kuhn and Bryn Yaw.  The hungarian method for the assignment problem.  </span><span 
+class="ptmri7t-x-x-80">Naval Res. Logist. Quart</span><span 
+class="ptmr7t-x-x-80">, pages 83&#8211;97, 1955.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XLee17CVPR"></a><span 
+class="ptmr7t-x-x-80">[16]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Namhoon  Lee,  Wongun  Choi,  Paul  Vernaza,  Christopher</span><span 
+class="ptmr7t-x-x-80">&#x00A0;Bongsoo  Choy,  Philip  H.</span><span 
+class="ptmr7t-x-x-80">&#x00A0;S.  Torr,  and  Manmohan</span><span 
+class="ptmr7t-x-x-80">&#x00A0;Krishna  Chandraker.  Desire:  Distant</span>
+   <span 
+class="ptmr7t-x-x-80">future prediction in dynamic scenes with interacting agents.  </span><span 
+class="ptmri7t-x-x-80">CVPR</span><span 
+class="ptmr7t-x-x-80">, 2017.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XLee10CVPR"></a><span 
+class="ptmr7t-x-x-80">[17]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Yong</span><span 
+class="ptmr7t-x-x-80">&#x00A0;Jae Lee and Kristen Grauman.  Learning the easy things first: Self-paced visual category discovery.  In </span><span 
+class="ptmri7t-x-x-80">CVPR</span><span 
+class="ptmr7t-x-x-80">, 2011.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="Xliang15ICCV"></a><span 
+class="ptmr7t-x-x-80">[18]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Xiaodan  Liang,  Si</span><span 
+class="ptmr7t-x-x-80">&#x00A0;Liu,  Yunchao  Wei,  Luoqi  Liu,  Liang  Lin,  and  Shuicheng  Yan.   Towards  computational  baby  learning:  A  weakly-supervised</span>
+   <span 
+class="ptmr7t-x-x-80">approach for object detection.  In </span><span 
+class="ptmri7t-x-x-80">ICCV</span><span 
+class="ptmr7t-x-x-80">, 2015.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XLin14ECCV"></a><span 
+class="ptmr7t-x-x-80">[19]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Tsung-Yi Lin, Michael Maire, Serge Belongie, James Hays, Pietro Perona, Deva Ramanan, Piotr Doll</span><span 
+class="ptmr7t-x-x-80">ár, and C.</span><span 
+class="ptmr7t-x-x-80">&#x00A0;Lawrence Zitnick. Microsoft COCO:</span>
+   <span 
+class="ptmr7t-x-x-80">Common objects in context.  In </span><span 
+class="ptmri7t-x-x-80">ECCV</span><span 
+class="ptmr7t-x-x-80">, 2014.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XLuiten18ACCV"></a><span 
+class="ptmr7t-x-x-80">[20]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Jonathon  Luiten,  Paul  Voigtlaender,  and  Bastian  Leibe.  Premvos:  Proposal-generation,  refinement  and  merging  for  video  object  segmentation.  In</span>
+   <span 
+class="ptmri7t-x-x-80">ACCV</span><span 
+class="ptmr7t-x-x-80">, 2018.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XLuiten20WACV"></a><span 
+class="ptmr7t-x-x-80">[21]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Jonathon Luiten, Idil Esen</span><span 
+class="ptmr7t-x-x-80">&#x00A0;Zulfikar Zulfikar, and Bastian Leibe.  Unovost: Unsupervised offline video object segmentation and tracking.  In </span><span 
+class="ptmri7t-x-x-80">WACV</span><span 
+class="ptmr7t-x-x-80">,</span>
+   <span 
+class="ptmr7t-x-x-80">2020.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XMaddern17IJRR"></a><span 
+class="ptmr7t-x-x-80">[22]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Will Maddern, Geoff Pascoe, Chris Linegar, and Paul Newman.  1 year, 1000km: The Oxford RobotCar dataset.  </span><span 
+class="ptmri7t-x-x-80">IJRR</span><span 
+class="ptmr7t-x-x-80">, 36(1):3&#8211;15, 2017.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XMoosmann11ICCVW"></a><span 
+class="ptmr7t-x-x-80">[23]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Frank Moosmann and Miro Sauerland.  Unsupervised discovery of object classes in 3d outdoor scenarios.  In </span><span 
+class="ptmri7t-x-x-80">ICCV Workshops</span><span 
+class="ptmr7t-x-x-80">, 2011.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XMoosmann13ICRA"></a><span 
+class="ptmr7t-x-x-80">[24]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Frank Moosmann and Christoph Stiller.  Joint self-localization and tracking of generic objects in 3d range data.  In </span><span 
+class="ptmri7t-x-x-80">ICRA</span><span 
+class="ptmr7t-x-x-80">, 2013.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XOsep17ICRA"></a><span 
+class="ptmr7t-x-x-80">[25]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Aljo</span><span 
+class="ptmr7t-x-x-80">&#353;a O</span><span 
+class="ptmr7t-x-x-80">&#353;ep, Wolfgang Mehner, Markus Mathias, and Bastian Leibe.  Combined image- and world-space tracking in traffic scenes.  In </span><span 
+class="ptmri7t-x-x-80">ICRA</span><span 
+class="ptmr7t-x-x-80">, 2017.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XOsep18ICRA"></a><span 
+class="ptmr7t-x-x-80">[26]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Aljo</span><span 
+class="ptmr7t-x-x-80">&#353;a O</span><span 
+class="ptmr7t-x-x-80">&#353;ep, Wolfgang Mehner, Paul Voigtlaender, and Bastian Leibe.  Track, then decide: Category-agnostic vision-based multi-object tracking.  In</span>
+   <span 
+class="ptmri7t-x-x-80">ICRA</span><span 
+class="ptmr7t-x-x-80">, 2018.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XOsep18ECCVW"></a><span 
+class="ptmr7t-x-x-80">[27]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Aljo</span><span 
+class="ptmr7t-x-x-80">&#353;a O</span><span 
+class="ptmr7t-x-x-80">&#353;ep, Paul Voigtlaender, Jonathon Luiten, Mark Weber, and Bastian Leibe.  Towards large-scale video object mining.  </span><span 
+class="ptmri7t-x-x-80">ECCV 2018 Workshop</span>
+   <span 
+class="ptmri7t-x-x-80">on Interactive and Adaptive Learning in an Open World</span><span 
+class="ptmr7t-x-x-80">, 2018.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XOsep19ICRA"></a><span 
+class="ptmr7t-x-x-80">[28]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Aljo</span><span 
+class="ptmr7t-x-x-80">&#353;a O</span><span 
+class="ptmr7t-x-x-80">&#353;ep, Paul Voigtlaender, Jonathon Luiten, Stefan Breuers, and Bastian Leibe.  Large-scale object mining for object discovery from unlabeled</span>
+   <span 
+class="ptmr7t-x-x-80">video.  In </span><span 
+class="ptmri7t-x-x-80">ICRA</span><span 
+class="ptmr7t-x-x-80">, 2019.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XOsep20ICRA"></a><span 
+class="ptmr7t-x-x-80">[29]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Aljo</span><span 
+class="ptmr7t-x-x-80">&#353;a O</span><span 
+class="ptmr7t-x-x-80">&#353;ep, Paul Voigtlaender, Jonathon Luiten, Mark Weber, and Bastian Leibe.  4d generic video object proposals.  In </span><span 
+class="ptmri7t-x-x-80">ICRA</span><span 
+class="ptmr7t-x-x-80">, 2020.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XPham18ECCV"></a><span 
+class="ptmr7t-x-x-80">[30]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Trung Pham, Vijay B.</span><span 
+class="ptmr7t-x-x-80">&#x00A0;G. Kumar, Thanh-Toan Do, Gustavo Carneiro, and Ian Reid.  Bayesian semantic instance segmentation in open set world.  In</span>
+   <span 
+class="ptmri7t-x-x-80">ECCV</span><span 
+class="ptmr7t-x-x-80">, 2018.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XPinheiro16ECCV"></a><span 
+class="ptmr7t-x-x-80">[31]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">P.H.O. Pinheiro, T.-Y. Lin, R.</span><span 
+class="ptmr7t-x-x-80">&#x00A0;Collobert, and P.</span><span 
+class="ptmr7t-x-x-80">&#x00A0;Doll</span><span 
+class="ptmr7t-x-x-80">ár.  Learning to refine object segments.  In </span><span 
+class="ptmri7t-x-x-80">ECCV</span><span 
+class="ptmr7t-x-x-80">, 2016.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XPontTuset17arxiv"></a><span 
+class="ptmr7t-x-x-80">[32]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">J.</span><span 
+class="ptmr7t-x-x-80">&#x00A0;Pont-Tuset, F.</span><span 
+class="ptmr7t-x-x-80">&#x00A0;Perazzi, S.</span><span 
+class="ptmr7t-x-x-80">&#x00A0;Caelles, P.</span><span 
+class="ptmr7t-x-x-80">&#x00A0;Arbel</span><span 
+class="ptmr7t-x-x-80">áez, A.</span><span 
+class="ptmr7t-x-x-80">&#x00A0;Sorkine-Hornung, and L.</span><span 
+class="ptmr7t-x-x-80">&#x00A0;Van Gool. The 2017 DAVIS challenge on video object segmentation.</span>
+   <span 
+class="ptmri7t-x-x-80">arXiv preprint arXiv:1704.00675</span><span 
+class="ptmr7t-x-x-80">, 2017.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XPrest12CVPR"></a><span 
+class="ptmr7t-x-x-80">[33]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Alessandro  Prest,  Christian  Leistner,  Javier  Civera,  Cordelia  Schmid,  and  Vittorio  Ferrari.  Learning  object  class  detectors  from  weakly  annotated</span>
+   <span 
+class="ptmr7t-x-x-80">video.  In </span><span 
+class="ptmri7t-x-x-80">CVPR</span><span 
+class="ptmr7t-x-x-80">, 2012.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XRedmon16CVPR"></a><span 
+class="ptmr7t-x-x-80">[34]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Joseph Redmon, Santosh Divvala, Ross Girshick, and Ali Farhadi.  You only look once: Unified, real-time object detection.  In </span><span 
+class="ptmri7t-x-x-80">CVPR</span><span 
+class="ptmr7t-x-x-80">, 2016.</span>
+   </p>
+                                                                                                  
+                                                                                                  
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XRen15NIPS"></a><span 
+class="ptmr7t-x-x-80">[35]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Shaoqing  Ren,  Kaiming  He,  Ross  Girshick,  and  Jian  Sun.   Faster  R-CNN:  Towards  real-time  object  detection  with  region  proposal  networks.   In</span>
+   <span 
+class="ptmri7t-x-x-80">NIPS</span><span 
+class="ptmr7t-x-x-80">, 2015.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XStutz18CVPR"></a><span 
+class="ptmr7t-x-x-80">[36]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">David Stutz and Andreas Geiger.  Learning 3d shape completion from laser scan data with weak supervision.  In </span><span 
+class="ptmri7t-x-x-80">CVPR</span><span 
+class="ptmr7t-x-x-80">, 2018.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XTeichman12IJRR"></a><span 
+class="ptmr7t-x-x-80">[37]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Alex Teichman and Sebastian Thrun.  Tracking-based semi-supervised learning.  </span><span 
+class="ptmri7t-x-x-80">IJRR</span><span 
+class="ptmr7t-x-x-80">, 31(7):804&#8211;818, 2012.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XVoigtlaender19CVPR"></a><span 
+class="ptmr7t-x-x-80">[38]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Paul Voigtlaender, Michael Krause, Aljo</span><span 
+class="ptmr7t-x-x-80">&#353;a O</span><span 
+class="ptmr7t-x-x-80">&#353;ep, Jonathon Luiten, B.B.G Sekar, Andreas Geiger, and Bastian Leibe.  MOTS: Multi-object tracking</span>
+   <span 
+class="ptmr7t-x-x-80">and segmentation.  In </span><span 
+class="ptmri7t-x-x-80">CVPR</span><span 
+class="ptmr7t-x-x-80">, 2019.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XWang15ICCV"></a><span 
+class="ptmr7t-x-x-80">[39]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Xiaolong Wang and Abhinav Gupta.  Unsupervised learning of visual representations using videos.  In </span><span 
+class="ptmri7t-x-x-80">ICCV</span><span 
+class="ptmr7t-x-x-80">, 2015.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XXian18TPAMI"></a><span 
+class="ptmr7t-x-x-80">[40]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Yongqin Xian, Christoph</span><span 
+class="ptmr7t-x-x-80">&#x00A0;H. Lampert, Bernt Schiele, and Zeynep Akata.  Zero-shot learning - a comprehensive evaluation of the good, the bad and</span>
+   <span 
+class="ptmr7t-x-x-80">the ugly.  </span><span 
+class="ptmri7t-x-x-80">PAMI</span><span 
+class="ptmr7t-x-x-80">, 2018.</span>
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XYang19ICCV"></a><span 
+class="ptmr7t-x-x-80">[41]</span> <span class="bibsp"><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span><span 
+class="ptmr7t-x-x-80">&#x00A0;</span></span></span><span 
+class="ptmr7t-x-x-80">Linjie Yang, Yuchen Fan, and Ning Xu.  Video instance segmentation.  In </span><span 
+class="ptmri7t-x-x-80">ICCV</span><span 
+class="ptmr7t-x-x-80">, 2019.</span>
+</p>
+   </div>
+   
+</body></html> 
+
+                                                                                                  
+
+
