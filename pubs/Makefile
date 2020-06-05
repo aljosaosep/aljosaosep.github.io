@@ -10,6 +10,7 @@ report:
 	pdflatex ${DOCNAME}.tex
 	pdflatex ${DOCNAME}.tex
 	htlatex ${DOCNAME}.tex
+	cat ${DOCNAME}.html > ${DOCNAME}.txt
 view: report
 	open $(DOCNAME).pdf
 
