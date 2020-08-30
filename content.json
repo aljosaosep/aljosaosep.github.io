@@ -1,5 +1,10 @@
 {
-	"news": [{
+	"news": [
+		{
+			"date": "30/8/2020",
+			"html": "Got outstanding reviewer award for CVPR'20 and ECCV'20 :)"
+		},
+		{
 			"date": "9/5/2020",
 			"html": "I was selected for participation at Robotics Science and Systems (RSS) <a href=\"https://sites.google.com/view/rsspioneers2020/home\">2020 Pioneers</a> event!"
 		},
@@ -81,7 +86,7 @@
 	],
 	"service": [
 		{
-			"html": "Regular reviewer for: CVPR, ICRA, IROS, ECCV, ICCV, IJCV, RSS, RAL, GCPR, BMVC, NeurIPS, TPAMI"
+			"html": "Reviewer for (machine learning, vision conferences) CVPR, ECCV, ICCV, BMVC, NeurIPS ;(robotics conferences) ICRA, IROS, RSS (journals); IJCV, RAL, TPAMI"
 
 		},
 		{
