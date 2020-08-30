@@ -1,0 +1,102 @@
+{
+	"news": [{
+			"date": "9/5/2020",
+			"html": "I was selected for participation at Robotics Science and Systems (RSS) <a href=\"https://sites.google.com/view/rsspioneers2020/home\">2020 Pioneers</a> event!"
+		},
+		{
+			"date": "19/4/2020",
+			"html": "Learned how to make pancakes! <a href=\"https://photos.app.goo.gl/uMeWKNmqPUcuwyXQ6\">Evidence</a>"
+		},
+		{
+			"date": "20/3/2020",
+			"html": "Our arxiv preprint on our most recent work on video-instance segmentation/multi-object tracking and segmentation is avalible! <a href=\"https://arxiv.org/abs/2003.08429\">Paper</a>"
+		},
+		{
+			"date": "10/2/2020",
+			"html": "We are organizing a workshop at ECCV'2020 \"Tracking and its many guises\"! <a href=\"http://taodataset.org/workshop/\">Web-page</a>"
+		},
+		{
+			"date": "1/2/2020",
+			"html": "Our paper \"How to Train your Deep Multi-Object Tracker\" accepted to CVPR'2020! <a href=\"https://arxiv.org/abs/1906.06618\">Paper</a>"
+		},
+		{
+			"date": "15/1/2020",
+			"html": "Our paper \"4D Generic Video Object Proposals\" accepted to ICRA'2020! <a href=\"https://arxiv.org/abs/1901.09260\">Paper</a>"
+		},
+		{
+			"date": "20/12/2020",
+			"html": "We are organizing a workshop on Multi-Object Tracking and Segmentation at CVPR'2020 in Seattle!"
+		},
+		{
+			"date": "27/6/2019",
+			"html": "Successfully defended my PhD thesis \"Vision-based Category Agnostic Object Tracking for Mobile Robots and Intelligent Vehicles\" with highest distinction (summa cum laude)! Yay!"
+		}
+	],
+
+	"talks": [{
+			"date": "27/6/2019",
+			"html": "RWTH Aachen University - Thesis Defense <a href=\"https://docs.google.com/presentation/d/e/2PACX-1vQ4POvCXfiL1fW5zoxpfEoOJDFNUxgbvoGKLWXuyj2rEz6I4xSeYCp9mhIFrxLfM9ckpg8zOlcDlBZ4/pub?start=false&loop=false&delayms=3000\">Slides</a>"
+		},
+		{
+			"date": "6/6/2019",
+			"html": "Georgia Tech - Research Talk <a href=\"https://docs.google.com/presentation/d/e/2PACX-1vSelDf9pZ8yAeMYGbndWO_OyqR2faPCum5G1vWKvGicB7s7E0LG3oAMD7iSTWiG_-RDT6TwAbg6fb5I/pub?start=false&loop=false&delayms=3000\">Slides</a>"
+		},
+		{
+			"date": "6/3/2019",
+			"html": "Carnegie Mellon University VASC Seminar <a href=\"https://docs.google.com/presentation/d/e/2PACX-1vTKleY9LI8z4Tc2FIXVd0woFKqMlkXjGwPpNOZTtw1VDUCucoxce4FFCe0Mi6g_wIrtCRv6kv3tw3Wk/pub?start=false&loop=false&delayms=3000\">Slides</a>"
+		},
+		{
+			"date": "31/5/2019",
+			"html": "UBER ATG Toronto - Research Talk"
+		}
+	],
+	"teaching": [
+		{
+			"date": "Winter 2020/21",
+			"html": "IN2157: Fundamental Algorithms (TU Munich, lecturer) <i>coming soon!</i>"
+
+		},
+		{
+			"date": "Summer 2019/20",
+			"html": "IN2375: Computer Vision 3: Detection, Segmentation and Tracking (TU Munich, guest lecturer) <a href=\"https://youtu.be/xwt16LHRccQ\">Lectures avalible on YouTube</a>"
+		},
+		{
+			"date": "Winter 2019/20",
+			"html": "IN2157: Fundamental Algorithms (TU Munich, lecturer) <a href=\"https://www.moodle.tum.de/course/view.php?id=52150\">TUM Moodle</a>"
+
+		},
+		{
+			"date": "Summer 2016/17",
+			"html": "Machine Learning (RWTH Aachen, teaching assistant for the execrise class)"
+		},
+		{
+			"date": "Winter 2014/15",
+			"html": "Computer Vision (RWTH Aachen, teaching assistant for the execrise class)"
+		},
+		{
+			"date": "Winter 2013/14",
+			"html": "Machine Learning (RWTH Aachen, teaching assistant for the execrise class)"
+		}
+
+	],
+	"service": [
+		{
+			"html": "Regular reviewer for: CVPR, ICRA, IROS, ECCV, ICCV, IJCV, RSS, RAL, GCPR, BMVC, NeurIPS, TPAMI"
+
+		},
+		{
+			"html": "Area Chair (AC) for WACV (2021)"
+		},
+		{
+			"html": "Co-organizer for workshops: <a href=\"https://motchallenge.net/workshops/bmtt2020/\">5th BMTT MOTChallenge Workshop: Multi-Object Tracking and Segmentation (CVPR'20)</a>, <a href = \"http://taodataset.org/workshop/\">Tracking and its many guises (ECCV'20)</a>."
+
+		},
+		{
+			"html": "Super-honored to be on the ECCV'24 organization team!"
+		},
+		{
+			"html": "I am in RSS Pioneers 2021 program committee!"
+		}
+
+	]
+}
