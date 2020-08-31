@@ -5,16 +5,16 @@
 			"html": "Got outstanding reviewer award for CVPR'20 and ECCV'20 :)"
 		},
 		{
+			"date": "30/8/2020",
+			"html": "Two papers accepted, on object segmentation and tracking (ECCV'20, <a href=\"https://arxiv.org/abs/2003.08429\">arxiv</a>) and video-saliency segmentation  (BMVC'20, <a href=\"https://arxiv.org/abs/2008.11516\">arxiv</a>). Congrats to the team!"
+		},		
+		{
 			"date": "9/5/2020",
 			"html": "I was selected for participation at Robotics Science and Systems (RSS) <a href=\"https://sites.google.com/view/rsspioneers2020/home\">2020 Pioneers</a> event!"
 		},
 		{
 			"date": "19/4/2020",
 			"html": "Learned how to make pancakes! <a href=\"https://photos.app.goo.gl/uMeWKNmqPUcuwyXQ6\">Evidence</a>"
-		},
-		{
-			"date": "20/3/2020",
-			"html": "Our arxiv preprint on our most recent work on video-instance segmentation/multi-object tracking and segmentation is avalible! <a href=\"https://arxiv.org/abs/2003.08429\">Paper</a>"
 		},
 		{
 			"date": "10/2/2020",
@@ -34,7 +34,7 @@
 		},
 		{
 			"date": "27/6/2019",
-			"html": "Successfully defended my PhD thesis \"Vision-based Category Agnostic Object Tracking for Mobile Robots and Intelligent Vehicles\" with highest distinction (summa cum laude)! Yay!"
+			"html": "Successfully defended my Ph.D. thesis \"Vision-based Category Agnostic Object Tracking for Mobile Robots and Intelligent Vehicles\" with the highest distinction (summa cum laude)! Yay!"
 		}
 	],
 
@@ -72,25 +72,25 @@
 		},
 		{
 			"date": "Summer 2016/17",
-			"html": "Machine Learning (RWTH Aachen, teaching assistant for the execrise class)"
+			"html": "Machine Learning (RWTH Aachen, exercise class)"
 		},
 		{
 			"date": "Winter 2014/15",
-			"html": "Computer Vision (RWTH Aachen, teaching assistant for the execrise class)"
+			"html": "Computer Vision (RWTH Aachen, execrise class)"
 		},
 		{
 			"date": "Winter 2013/14",
-			"html": "Machine Learning (RWTH Aachen, teaching assistant for the execrise class)"
+			"html": "Machine Learning (RWTH Aachen, exercise class)"
 		}
 
 	],
 	"service": [
 		{
-			"html": "Reviewer for (<i>machine learning, vision conferences</i>) CVPR, ECCV, ICCV, BMVC, NeurIPS; (<i>robotics conferences</i>) ICRA, IROS, RS; (<i>journals</i>) IJCV, RAL, TPAMI"
+			"html": "Reviewer for (<i>machine learning, vision conferences</i>) CVPR, ECCV, ICCV, BMVC, NeurIPS; (<i>robotics conferences</i>) ICRA, IROS, RSS; (<i>journals</i>) IJCV, RAL, TPAMI"
 
 		},
 		{
-			"html": "Area Chair (AC) for WACV (2021)"
+			"html": "Area Chair for WACV'21!"
 		},
 		{
 			"html": "Co-organizer for workshops: <a href=\"https://motchallenge.net/workshops/bmtt2020/\">5th BMTT MOTChallenge Workshop: Multi-Object Tracking and Segmentation (CVPR'20)</a>, <a href = \"http://taodataset.org/workshop/\">Tracking and its many guises (ECCV'20)</a>."
