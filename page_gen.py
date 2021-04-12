@@ -9,14 +9,15 @@ import generator_utils as gut
 # Most basics stuff
 caption = """Aljosa's Web Corner"""
 title = """Aljosa Osep, Ph.D."""
-desc = """Hi, I'm Aljosa, and I come from the Alpine side of Slovenia. 
-	I obtained my M.Sc. degree at the University of Bonn and Ph.D. at RWTH Aachen University under the supervision of <a href="https://www.vision.rwth-aachen.de/person/1/">Prof. Dr. Bastian Leibe</a>. 
+desc = """Hi, I'm Aljosa! I am working towards segmenting and tracking every object and pixel by scaling object detection, segmentation, and tracking models to the open world.  
+	<br><br>
+	I come from the Alpine side of Slovenia. I have obtained my M.Sc. degree at the University of Bonn and Ph.D. at RWTH Aachen University under the supervision of <a href="https://www.vision.rwth-aachen.de/person/1/">Prof. Dr. Bastian Leibe</a>. 
 	Currently, I am working with <a href="https://dvl.in.tum.de/team/lealtaixe/">Prof. Dr. Laura Leal-Taixe</a> (<a href="https://dvl.in.tum.de/">Dynamic Vision and Learning Group</a>) at the Technical University of Munich."""
 css = """https://latex.now.sh/style.min.css""" # Nice LaTeX-style
 pic = """<img src="img/aljosa.png" alt="In Colombia, my fave" width="200" align="left" style="padding:10px;">"""
-links = """<a href="rss_2020_camready.html">Research Statement</a> 
+links = """<br><b><a href="rss_2020_camready.html">Research Statement</a> 
 	<a href="https://twitter.com/AljosaOsep">Twitter</a> 
-	<a href="https://scholar.google.de/scholar?hl=en&as_sdt=0%2C5&q=aljosa+osep&oq=a">Scholar</a>"""
+	<a href="https://scholar.google.de/scholar?hl=en&as_sdt=0%2C5&q=aljosa+osep&oq=a">Scholar</a></b>"""
 
 
 # === News ===
