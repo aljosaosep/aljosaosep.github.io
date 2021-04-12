@@ -1,13 +1,13 @@
 {
 	"news": [
 		{
-			"date": "30/8/2020",
-			"html": "Got outstanding reviewer award for CVPR'20 and ECCV'20 :)"
+			"date": "7/9/2020",
+			"html": "Got outstanding reviewer award for NeurIPS'20 :)"
 		},
 		{
 			"date": "30/8/2020",
-			"html": "Two papers accepted, on object segmentation and tracking (ECCV'20, <a href=\"https://arxiv.org/abs/2003.08429\">arxiv</a>) and video-saliency segmentation  (BMVC'20, <a href=\"https://arxiv.org/abs/2008.11516\">arxiv</a>). Congrats to the team!"
-		},		
+			"html": "Got outstanding reviewer award for CVPR'20 and ECCV'20 :)"
+		},	
 		{
 			"date": "9/5/2020",
 			"html": "I was selected for participation at Robotics Science and Systems (RSS) <a href=\"https://sites.google.com/view/rsspioneers2020/home\">2020 Pioneers</a> event!"
@@ -21,14 +21,6 @@
 			"html": "We are organizing a workshop at ECCV'2020 \"Tracking and its many guises\"! <a href=\"http://taodataset.org/workshop/\">Web-page</a>"
 		},
 		{
-			"date": "1/2/2020",
-			"html": "Our paper \"How to Train your Deep Multi-Object Tracker\" accepted to CVPR'2020! <a href=\"https://arxiv.org/abs/1906.06618\">Paper</a>"
-		},
-		{
-			"date": "15/1/2020",
-			"html": "Our paper \"4D Generic Video Object Proposals\" accepted to ICRA'2020! <a href=\"https://arxiv.org/abs/1901.09260\">Paper</a>"
-		},
-		{
 			"date": "20/12/2020",
 			"html": "We are organizing a workshop on Multi-Object Tracking and Segmentation at CVPR'2020 in Seattle!"
 		},
@@ -38,7 +30,21 @@
 		}
 	],
 
-	"talks": [{
+	"talks": [
+
+		{
+			"date": "8/4/2021",
+			"html": "Cornell Robotics Seminar <a href=\"https://docs.google.com/presentation/d/1r19VsfVVRboE-kb4dVCUqz8xNeWKtmxqHDNj27kR4Us/edit?usp=sharing\">Slides</a>"
+		},
+		{
+			"date": "4/9/2020",
+			"html": "University of Bonn - Research talk <a href=\"https://docs.google.com/presentation/d/1GCDF-FBnXW9i0NrSTqB20BRgpN3uOMxWgGwp3XVzc5A/edit?usp=sharing\">Slides</a>"
+		},
+		{
+			"date": "4/9/2020",
+			"html": "TUM lecture on 3D object detection, segmentation and object tracking <a href=\"https://docs.google.com/presentation/d/1q4swkX2K6S-V-HToAxYZOmSS9qKgkGoIuQasKBgkVzI/edit?usp=sharing\">Slides</a> <a href=\"https://youtu.be/W3OuEYrN8TY\">Video</a>"
+		},
+		{
 			"date": "27/6/2019",
 			"html": "RWTH Aachen University - Thesis Defense <a href=\"https://docs.google.com/presentation/d/e/2PACX-1vQ4POvCXfiL1fW5zoxpfEoOJDFNUxgbvoGKLWXuyj2rEz6I4xSeYCp9mhIFrxLfM9ckpg8zOlcDlBZ4/pub?start=false&loop=false&delayms=3000\">Slides</a>"
 		},
@@ -58,7 +64,7 @@
 	"teaching": [
 		{
 			"date": "Winter 2020/21",
-			"html": "IN2157: Fundamental Algorithms (TU Munich, lecturer) <i>coming soon!</i>"
+			"html": "<a href=\"https://dvl.in.tum.de/teaching/fundalg-ws20/\">IN2157: Fundamental Algorithms </a> (TU Munich, lecturer)"
 
 		},
 		{
