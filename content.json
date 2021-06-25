@@ -1,6 +1,10 @@
 {
 	"news": [
 		{
+			"date": "1/3/2021",
+			"html": "I am giving an invited talk at the <a href=\"https://jrdb.stanford.edu/workshops/jrdb-cvpr21\">CVPR'21 JRDB workshop!</a>"
+		},		
+		{
 			"date": "7/9/2020",
 			"html": "Got outstanding reviewer award for NeurIPS'20 :)"
 		},
@@ -10,7 +14,7 @@
 		},	
 		{
 			"date": "9/5/2020",
-			"html": "I was selected for participation at Robotics Science and Systems (RSS) <a href=\"https://sites.google.com/view/rsspioneers2020/home\">2020 Pioneers</a> event!"
+			"html": "I was selected for a participation at the Robotics Science and Systems (RSS) <a href=\"https://sites.google.com/view/rsspioneers2020/home\">2020 Pioneers</a> event!"
 		},
 		{
 			"date": "19/4/2020",
@@ -32,6 +36,10 @@
 
 	"talks": [
 
+		{
+			"date": "20/6/2021",
+			"html": "CVPR 2021 JRDB Workshop invited talk<a href=\"https://docs.google.com/presentation/d/1AdtfJFmpbB1Hi6EpcQMzB5ylfk03p2-_DI7ZEgxmz8o/edit?usp=sharing\"> Slides</a>"
+		},
 		{
 			"date": "8/4/2021",
 			"html": "Cornell Robotics Seminar <a href=\"https://docs.google.com/presentation/d/1r19VsfVVRboE-kb4dVCUqz8xNeWKtmxqHDNj27kR4Us/edit?usp=sharing\">Slides</a>"
@@ -92,7 +100,7 @@
 	],
 	"service": [
 		{
-			"html": "Reviewer for (<i>machine learning, vision conferences</i>) CVPR, ECCV, ICCV, BMVC, NeurIPS, ICML; (<i>robotics conferences</i>) ICRA, IROS, RSS; (<i>journals</i>) IJCV, RAL, TPAMI"
+			"html": "Reviewer for (<i>machine learning, vision conferences</i>) CVPR, ECCV, ICCV, BMVC, NeurIPS, ICML, ICLR; (<i>robotics conferences</i>) ICRA, IROS, RSS; (<i>journals</i>) IJCV, RAL, TPAMI"
 
 		},
 		{
