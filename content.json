@@ -1,6 +1,10 @@
 {
 	"news": [
 		{
+			"date": "15/6/2021",
+			"html": "I am spending a year at the Carnegie Mellon University (The Robotics Institute, <a href=\"https://labs.ri.cmu.edu/argo-ai-center/\">CMU Argo AI Center for Autonomous Vehicle Research</a>) in Pittsburgh! Thanks to <a href=\"https://www.cs.cmu.edu/~deva/\">Deva Ramanan</a> for hosting me!</a>"
+		},	
+		{
 			"date": "1/3/2021",
 			"html": "I am giving an invited talk at the <a href=\"https://jrdb.stanford.edu/workshops/jrdb-cvpr21\">CVPR'21 JRDB workshop!</a>"
 		},		
@@ -36,9 +40,15 @@
 
 	"talks": [
 
+
 		{
-			"date": "20/6/2021",
-			"html": "CVPR 2021 JRDB Workshop invited talk<a href=\"https://docs.google.com/presentation/d/1AdtfJFmpbB1Hi6EpcQMzB5ylfk03p2-_DI7ZEgxmz8o/edit?usp=sharing\"> Slides</a>"
+			"date": "15/7/2021",
+			"html": "RSS 2021 on Workshop on Behavioral Inference of Remotely Sensed Multi-agent Systems invited talk<a href=\"https://docs.google.com/presentation/d/1MvjuIpNDPFLveJDWb6IU2QjeKHHhkZv0jk2aFgOdAI0/edit?usp=sharing\"> Slides</a>"
+		},
+
+		{
+			"date": "14/7/2021",
+			"html": "RSS 2021 Workshop on Perception and Control for Autonomous Navigation in Crowded, Dynamic Environments invited talk<a href=\"https://docs.google.com/presentation/d/1osEVQOwyByzjnrFJ8GD13GY6A2BTufcdZAgX9RPs74k/edit?usp=sharing\"> Slides</a>, <a href=\"https://youtu.be/Crur1kKLFmA\"> Talk</a>"
 		},
 		{
 			"date": "8/4/2021",
@@ -99,6 +109,11 @@
 
 	],
 	"service": [
+
+		{
+			"html": "I am the main organizer of <a href=\"https://motchallenge.net/workshops/bmtt2021\">6th BMTT MOTChallenge Workshop: Segmenting and Tracking Every Point and Pixel (ICCV'21) workshop!</a>."
+
+		},
 		{
 			"html": "Reviewer for (<i>machine learning, vision conferences</i>) CVPR, ECCV, ICCV, BMVC, NeurIPS, ICML, ICLR; (<i>robotics conferences</i>) ICRA, IROS, RSS; (<i>journals</i>) IJCV, RAL, TPAMI"
 
