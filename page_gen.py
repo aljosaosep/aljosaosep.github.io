@@ -49,7 +49,18 @@ for idx, entry in enumerate(bib_database.entries):
 		if type_key not in entry:
 				type_key = "journal"
 
-		mypub = "{} {}. {}. In {}, {}. {}".format("""<p class="bibitem" ><span class="biblabel">[{}]<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>""".format(idx+1), auth, entry["title"], entry[type_key], entry["year"], """</p>""")
+		link_entries = ["paper", "video", "poster", "page", "code", "blog", "teaser"]
+		link_gen = ""
+		for kentry in entry.keys():
+			#print (kentry)
+			if kentry in link_entries:
+				link_gen += """<a href="{}" target="_blank">{}</a> """.format(entry[kentry], kentry)
+
+
+		#print ("---LINK GEN---")
+		#print (link_gen)
+
+		mypub = "{} {}. {}. In {}, {}. </br> {} {}".format("""<p class="bibitem" ><span class="biblabel">[{}]<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>""".format(idx+1), auth, entry["title"], entry[type_key], entry["year"], link_gen, """</p>""")
 		all_pubs += mypub
 all_pubs += """</div>"""
 		
