@@ -1,6 +1,10 @@
 {
 	"news": [
 		{
+			"date": "1/3/2021",
+			"html": "Three papers accepted to CVPR 2022 jays! Thanks to my cool collaborators!</a>"
+		},
+		{
 			"date": "15/6/2021",
 			"html": "I am spending a year at the Carnegie Mellon University (The Robotics Institute, <a href=\"https://labs.ri.cmu.edu/argo-ai-center/\">CMU Argo AI Center for Autonomous Vehicle Research</a>) in Pittsburgh! Thanks to <a href=\"https://www.cs.cmu.edu/~deva/\">Deva Ramanan</a> for hosting me!</a>"
 		},	
