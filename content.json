@@ -1,7 +1,8 @@
 {
 	"news": [
+
 		{
-			"date": "1/3/2021",
+			"date": "1/3/2022",
 			"html": "Three papers accepted to CVPR 2022 jays! Thanks to my cool collaborators!</a>"
 		},
 		{
@@ -11,15 +12,7 @@
 		{
 			"date": "1/3/2021",
 			"html": "I am giving an invited talk at the <a href=\"https://jrdb.stanford.edu/workshops/jrdb-cvpr21\">CVPR'21 JRDB workshop!</a>"
-		},		
-		{
-			"date": "7/9/2020",
-			"html": "Got outstanding reviewer award for NeurIPS'20 :)"
-		},
-		{
-			"date": "30/8/2020",
-			"html": "Got outstanding reviewer award for CVPR'20 and ECCV'20 :)"
-		},	
+		},			
 		{
 			"date": "9/5/2020",
 			"html": "I was selected for a participation at the Robotics Science and Systems (RSS) <a href=\"https://sites.google.com/view/rsspioneers2020/home\">2020 Pioneers</a> event!"
@@ -35,16 +28,10 @@
 		{
 			"date": "20/12/2020",
 			"html": "We are organizing a workshop on Multi-Object Tracking and Segmentation at CVPR'2020 in Seattle!"
-		},
-		{
-			"date": "27/6/2019",
-			"html": "Successfully defended my Ph.D. thesis \"Vision-based Category Agnostic Object Tracking for Mobile Robots and Intelligent Vehicles\" with the highest distinction (summa cum laude)! Yay!"
 		}
 	],
 
 	"talks": [
-
-
 		{
 			"date": "15/7/2021",
 			"html": "RSS 2021 on Workshop on Behavioral Inference of Remotely Sensed Multi-agent Systems invited talk<a href=\"https://docs.google.com/presentation/d/1MvjuIpNDPFLveJDWb6IU2QjeKHHhkZv0jk2aFgOdAI0/edit?usp=sharing\"> Slides</a>"
@@ -84,6 +71,7 @@
 		}
 	],
 	"teaching": [
+
 		{
 			"date": "Winter 2020/21",
 			"html": "<a href=\"https://dvl.in.tum.de/teaching/fundalg-ws20/\">IN2157: Fundamental Algorithms </a> (TU Munich, lecturer)"
@@ -123,7 +111,7 @@
 
 		},
 		{
-			"html": "Area Chair for WACV'21!"
+			"html": "Area Chair for WACV'21, ACCV'22!"
 		},
 		{
 			"html": "Co-organizer for workshops: <a href=\"https://motchallenge.net/workshops/bmtt2020/\">5th BMTT MOTChallenge Workshop: Multi-Object Tracking and Segmentation (CVPR'20)</a>, <a href = \"http://taodataset.org/workshop/\">Tracking and its many guises (ECCV'20)</a>."
