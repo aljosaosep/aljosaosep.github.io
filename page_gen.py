@@ -60,6 +60,9 @@ for idx, entry in enumerate(bib_database.entries):
 		#print ("---LINK GEN---")
 		#print (link_gen)
 
+		#mypub = "{} {} {}".format("""<p class="bibitem" ><span class="biblabel"></span>""", entry["title"], """</p>""")
+
+
 		mypub = "{} {}. {}. In {}, {}. </br> {} {}".format("""<p class="bibitem" ><span class="biblabel"></span>""", auth, entry["title"], entry[type_key], entry["year"], link_gen, """</p>""")
 		all_pubs += mypub
 all_pubs += """</div>"""
