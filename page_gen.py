@@ -72,8 +72,8 @@ all_pubs += """</div>"""
 head = """<!DOCTYPE html><html lang="en"><head><title>{}</title><link rel="stylesheet" href={} /></head>""".format(caption, css)
 body = r'<body><h1>{}</h1>{}<p>{}</p>{} <h2>News</h2>{} <h2>Service</h2>{} <h2>Talks</h2>{} <h2>Teaching</h2> {} <h2>Publications</h2> {} </body></html>'.format(title, pic, desc, links, gen_news, gen_service, gen_talks, gen_teaching, all_pubs)
 
-#head = """<!DOCTYPE html><html lang="en"><head><title>{}</title><link rel="stylesheet" href={} /></head>""".format(caption, css)
-#body = r'<body><h2>Publications</h2> {} </body></html>'.format(all_pubs)
+head = """<!DOCTYPE html><html lang="en"><head><title>{}</title><link rel="stylesheet" href={} /></head>""".format(caption, css)
+body = r'<body><h2>Publications</h2> {} </body></html>'.format(all_pubs)
 
 final = '{}{}'.format(head, body)
 
