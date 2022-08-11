@@ -63,7 +63,22 @@ for idx, entry in enumerate(bib_database.entries):
 		#mypub = "{} {} {}".format("""<p class="bibitem" ><span class="biblabel"></span>""", entry["title"], """</p>""")
 
 
-		mypub = "{} {}. {}. In {}, {}. </br> {} {}".format("""<p class="bibitem" ><span class="biblabel"></span>""", auth, entry["title"], entry[type_key], entry["year"], link_gen, """</p>""")
+		mypub_text = "{} {}: <b>{}</b>, {}, {}.  </br> {} {}".format("""<p class="bibitem" ><span class="biblabel"></span>""",  auth, entry["title"], entry[type_key],  entry["year"] , link_gen, """</p>""")
+
+		thumb_url = "img/thumb/default.jpg"
+		if "thumb" in entry.keys():
+			thumb_url = "img/thumb/{}".format(entry["thumb"])
+
+		#print (thumb_url)
+
+		mypub = """<div><div style="float: left; margin: 5px 20px 10px 0px;">"""
+		mypub += "<img src=\"{}\" width=\"200\" height=\"200\" style=\"border-radius: 8px;\"/>".format(thumb_url)
+		#mypub += """<img src="/Users/aljosaosep/Pictures/aljosa_.jpg" width="200" height="200" style="border-radius: 8px;" />"""
+		mypub += """</div><div>"""
+		mypub += mypub_text
+		mypub += """</div></div><br clear="all" />"""
+
+
 		all_pubs += mypub
 all_pubs += """</div>"""
 		
