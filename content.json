@@ -1,6 +1,10 @@
 {
 	"news": [
 		{
+			"date": "16/9/2022",
+			"html": "Two papers accepted to NeurIPS 2022! Excited to be back to NOLA soon!</a>"
+		},		
+		{
 			"date": "7/8/2022",
 			"html": "Two papers accepted to ECCV 2022 and two to IROS 2022/RAL! See y'all in parallel in Kyoto and Tel Aviv? :thinking: </a>"
 		},
