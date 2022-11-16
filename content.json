@@ -41,6 +41,14 @@
 
 	"talks": [
 		{
+			"date": "16/11/2022",
+			"html": "ECCV’22 Workshop on 3D Perception in Autonomous Driving <a href=\"https://innoviz.tech/eccv-speakers\">Url</a> <a href=\"tbd\">Slides</a>"
+		},
+		{
+			"date": "16/11/2022",
+			"html": "ECCV’22 Workshop on Cross-Modal Human-Robot Interaction <a href=\"https://cross-modal-human-robot-interaction.github.io/speakers.html\">Url</a> <a href=\"tbd\">Slides</a>"
+		},				
+		{
 			"date": "26/6/2022",
 			"html": "Slovenian data-science meetup talk (in Slovenian): <a href=\"https://docs.google.com/presentation/d/1snIpyxQaFQYvSvx_V56I1VVqow-3UlSlDw9gIEH8IsI/edit?usp=sharing\">Slides</a>"
 		},
