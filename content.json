@@ -1,101 +1,97 @@
 {
-	"news": [
-		{
-			"date": "16/9/2022",
+	"about": "Hi, I'm Aljosa! I am working towards scaling object detection, segmentation, and tracking models to the open world and learning from raw, unlabeled streams of sensory data. <br><br> I come from the Alpine side of Slovenia. I have obtained my M.Sc. degree at the University of Bonn and Ph.D. at RWTH Aachen University under the supervision of <a href=\"https://www.vision.rwth-aachen.de/person/1/\">Prof. Dr. Bastian Leibe</a>. Currently, I am working with <a href=\"http://www.cs.cmu.edu/~deva/\">Prof. Deva Ramanan</a> at the CMU Robotics Institute and <a href=\"https://dvl.in.tum.de/team/lealtaixe/\">Prof. Laura Leal-Taixe</a> (<a href=\"https://dvl.in.tum.de/\">Dynamic Vision and Learning Group</a>) at the Technical University of Munich.",
+
+	"news": [{
+			"date": "September 2022",
 			"html": "Two papers accepted to NeurIPS 2022! Excited to be back to NOLA soon!</a>"
-		},		
+		},
 		{
-			"date": "7/8/2022",
+			"date": "August 2022",
 			"html": "Two papers accepted to ECCV 2022 and two to IROS 2022/RAL! See y'all in parallel in Kyoto and Tel Aviv? :thinking: </a>"
 		},
 		{
-			"date": "27/6/2022",
+			"date": "June 2022",
 			"html": "I was featured in the <b>TWIMLAI podcast!</b> <a href=\"https://twimlai.com/podcast/twimlai/on-the-path-towards-robot-vision-with-aljosa-osep/\">Link</a>"
-		},		
+		},
 		{
-			"date": "1/3/2022",
+			"date": "March 2022",
 			"html": "Three papers accepted to CVPR 2022 jays! Thanks to my cool collaborators!</a>"
 		},
 		{
-			"date": "15/8/2021",
+			"date": "August 2021",
 			"html": "I am one of the three persons listed as outstanding reviewers for all top-tier computer vision conferences in 2020/21, see <a href=\"https://twitter.com/simon_niklaus/status/1433127773409665025?s=20\"> the informal analysis</a> by Simon Niklaus! Thanks to ACs for the recognition and Simon for pointing this out."
 		},
 		{
-			"date": "15/8/2021",
+			"date": "August 2021",
 			"html": "I was awarded Borchers Plaquette at RWTH Aachen University for outstanding doctoral dissertation!"
 		},
 		{
-			"date": "15/6/2021",
+			"date": "June 2021",
 			"html": "I am spending a year at the Carnegie Mellon University (The Robotics Institute, <a href=\"https://labs.ri.cmu.edu/argo-ai-center/\">CMU Argo AI Center for Autonomous Vehicle Research</a>) in Pittsburgh! Thanks to <a href=\"https://www.cs.cmu.edu/~deva/\">Deva Ramanan</a> for hosting me!</a>"
-		},			
+		},
 		{
-			"date": "9/5/2020",
+			"date": "May 2020",
 			"html": "I was selected for a participation at the Robotics Science and Systems (RSS) <a href=\"https://sites.google.com/view/rsspioneers2020/home\">2020 Pioneers</a> event!"
 		},
 		{
-			"date": "19/4/2020",
+			"date": "April 2020",
 			"html": "Learned how to make pancakes! <a href=\"https://photos.app.goo.gl/uMeWKNmqPUcuwyXQ6\">Evidence</a>"
 		}
 	],
 
 
-	"talks": [
-		{
-			"date": "16/11/2022",
+	"talks": [{
+			"date": "October 2022",
 			"html": "ECCV’22 Workshop on 3D Perception in Autonomous Driving <a href=\"https://innoviz.tech/eccv-speakers\">Url</a> <a href=\"tbd\">Slides</a>"
 		},
 		{
-			"date": "16/11/2022",
+			"date": "October 2022",
 			"html": "ECCV’22 Workshop on Cross-Modal Human-Robot Interaction <a href=\"https://cross-modal-human-robot-interaction.github.io/speakers.html\">Url</a> <a href=\"tbd\">Slides</a>"
-		},				
+		},
 		{
-			"date": "26/6/2022",
+			"date": "June 2022",
 			"html": "Slovenian data-science meetup talk (in Slovenian): <a href=\"https://docs.google.com/presentation/d/1snIpyxQaFQYvSvx_V56I1VVqow-3UlSlDw9gIEH8IsI/edit?usp=sharing\">Slides</a>"
 		},
 		{
-			"date": "8/4/2022",
+			"date": "April 2022",
 			"html": "UT Austin AI colloquium, <b>Unifying Segmentation, Tracking, and Forecasting</b>, <a href=\"https://docs.google.com/presentation/d/1us6m0LwJ3_Ai04yS13ztskCwQ4GCU-Vb5uLP41qs9Vc/edit?usp=sharin\"g> Slides</a>"
 		},
 		{
-			"date": "8/9/2021",
+			"date": "September 2021",
 			"html": "ICCV’21 Workshop on 3D Object Detection from Images, <b>4D Panoptic LiDAR Segmentation</b>, <a href=\"https://docs.google.com/presentation/d/1NdMZ1ZHlGMkUBjvLEjcNyR6sWovXPO2OJEF8QrDNqmM/edit?usp=sharing\"g> Slides</a>"
 		},
 		{
-			"date": "15/7/2021",
+			"date": "July 2021",
 			"html": "RSS 2021 on Workshop on Behavioral Inference of Remotely Sensed Multi-agent Systems invited talk, <b>Tracking Every Object and Pixel</b>, <a href=\"https://docs.google.com/presentation/d/1MvjuIpNDPFLveJDWb6IU2QjeKHHhkZv0jk2aFgOdAI0/edit?usp=sharing\"> Slides</a>"
 		},
 
 		{
-			"date": "14/7/2021",
+			"date": "July 2021",
 			"html": "RSS 2021 Workshop on Perception and Control for Autonomous Navigation in Crowded, Dynamic Environments invited talk, <b>Tracking Every Object and Pixel</b>, <a href=\"https://docs.google.com/presentation/d/1osEVQOwyByzjnrFJ8GD13GY6A2BTufcdZAgX9RPs74k/edit?usp=sharing\"> Slides</a>, <a href=\"https://youtu.be/Crur1kKLFmA\"> Talk</a>"
 		},
 		{
-			"date": "19/6/2021",
+			"date": "June 2021",
 			"html": "<a href=\"https://jrdb.erc.monash.edu/workshops/cvpr2021\">CVPR'21 JackRobbot dataset and benchmark (JRDB) workshop talk,</a> <b>Tracking Every Object and Pixel</b>, <a href=\"https://docs.google.com/presentation/d/1AdtfJFmpbB1Hi6EpcQMzB5ylfk03p2-_DI7ZEgxmz8o/edit?usp=sharing\">Slides</a>"
-		},		
+		},
 		{
-			"date": "8/4/2021",
+			"date": "April 2021",
 			"html": "Cornell Robotics Seminar, <a href=\"https://docs.google.com/presentation/d/1r19VsfVVRboE-kb4dVCUqz8xNeWKtmxqHDNj27kR4Us/edit?usp=sharing\">Slides</a>"
 		},
 		{
-			"date": "4/9/2020",
+			"date": "September 2020",
 			"html": "University of Bonn - Research talk, <a href=\"https://docs.google.com/presentation/d/1GCDF-FBnXW9i0NrSTqB20BRgpN3uOMxWgGwp3XVzc5A/edit?usp=sharing\">Slides</a>"
 		},
 		{
-			"date": "27/6/2019",
+			"date": "June 2019",
 			"html": "RWTH Aachen University - Thesis Defense, <a href=\"https://docs.google.com/presentation/d/e/2PACX-1vQ4POvCXfiL1fW5zoxpfEoOJDFNUxgbvoGKLWXuyj2rEz6I4xSeYCp9mhIFrxLfM9ckpg8zOlcDlBZ4/pub?start=false&loop=false&delayms=3000\">Slides</a>"
 		},
 		{
-			"date": "6/6/2019",
+			"date": "June 2019",
 			"html": "Georgia Tech - Research Talk, <a href=\"https://docs.google.com/presentation/d/e/2PACX-1vSelDf9pZ8yAeMYGbndWO_OyqR2faPCum5G1vWKvGicB7s7E0LG3oAMD7iSTWiG_-RDT6TwAbg6fb5I/pub?start=false&loop=false&delayms=3000\">Slides</a>"
 		},
 		{
-			"date": "6/3/2019",
+			"date": "March 2019",
 			"html": "Carnegie Mellon University VASC Seminar, <a href=\"https://docs.google.com/presentation/d/e/2PACX-1vTKleY9LI8z4Tc2FIXVd0woFKqMlkXjGwPpNOZTtw1VDUCucoxce4FFCe0Mi6g_wIrtCRv6kv3tw3Wk/pub?start=false&loop=false&delayms=3000\">Slides</a>"
-		},
-		{
-			"date": "31/5/2019",
-			"html": "UBER ATG Toronto - Research Talk"
 		}
 	],
 	"teaching": [
