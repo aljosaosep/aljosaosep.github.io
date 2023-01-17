@@ -11,10 +11,6 @@ desc = gut.get_about_from_json(json_file='content.json')
 # Most basics stuff
 caption = """Aljosa's Web Corner"""
 title = """Aljosa Osep, Ph.D."""
-#desc = """Hi, I'm Aljosa! I am working towards scaling object detection, segmentation, and tracking models to the open world and learning from raw, unlabeled streams of sensory data.  
-#	<br><br>
-#	I come from the Alpine side of Slovenia. I have obtained my M.Sc. degree at the University of Bonn and Ph.D. at RWTH Aachen University under the supervision of <a href="https://www.vision.rwth-aachen.de/person/1/">Prof. Dr. Bastian Leibe</a>. 
-#	Currently, I am working with <a href="http://www.cs.cmu.edu/~deva/">Prof. Deva Ramanan</a> at the CMU Robotics Institute and <a href="https://dvl.in.tum.de/team/lealtaixe/">Prof. Laura Leal-Taixe</a> (<a href="https://dvl.in.tum.de/">Dynamic Vision and Learning Group</a>) at the Technical University of Munich."""
 css = """https://latex.now.sh/style.min.css""" # Nice LaTeX-style
 pic = """<img src="img/aljosa.png" alt="In Colombia, my fave" width="200" align="left" style="padding:10px;">"""
 links = """<br><b><a href="rss_2020_camready.html">Research Statement</a> 
@@ -28,6 +24,9 @@ gen_news = gut.gen_timestamped_list_from_json(json_file='content.json', source='
 
 # === Talks ===
 gen_talks = gut.gen_timestamped_list_from_json(json_file='content.json', source='talks') 
+
+# === Students ===
+gen_students = gut.gen_timestamped_list_from_json(json_file='content.json', source='students') 
 
 # === Teaching ===
 gen_teaching = gut.gen_timestamped_list_from_json(json_file='content.json', source='teaching') 
@@ -74,6 +73,7 @@ for idx, entry in enumerate(bib_database.entries):
 
 		#print (thumb_url)
 
+		mypub = ""
 		mypub = """<div><div style="float: left; margin: 5px 20px 10px 0px;">"""
 		mypub += "<img src=\"{}\" width=\"200\" height=\"200\" style=\"border-radius: 8px;\"/>".format(thumb_url)
 		#mypub += """<img src="/Users/aljosaosep/Pictures/aljosa_.jpg" width="200" height="200" style="border-radius: 8px;" />"""
@@ -88,7 +88,7 @@ all_pubs += """</div>"""
 
 # === Generate head and body ===
 head = """<!DOCTYPE html><html lang="en"><head><title>{}</title><link rel="stylesheet" href={} /></head>""".format(caption, css)
-body = r'<body><h1>{}</h1>{}<p>{}</p>{} <h2>News</h2>{} <h2>Service</h2>{} <h2>Talks</h2>{} <h2>Teaching</h2> {} <h2>Publications</h2> {} </body></html>'.format(title, pic, desc, links, gen_news, gen_service, gen_talks, gen_teaching, all_pubs)
+body = r'<body><h1>{}</h1>{}<p>{}</p>{} <h2>News</h2>{} <h2>Students Supervised</h2>{} <h2>Service</h2>{} <h2>Talks</h2>{} <h2>Teaching</h2> {} <h2>Publications</h2> {} </body></html>'.format(title, pic, desc, links, gen_news, gen_students, gen_service, gen_talks, gen_teaching, all_pubs)
 
 #head = """<!DOCTYPE html><html lang="en"><head><title>{}</title><link rel="stylesheet" href={} /></head>""".format(caption, css)
 #body = r'<body><h2>Publications</h2> {} </body></html>'.format(all_pubs)

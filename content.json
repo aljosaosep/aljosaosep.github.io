@@ -39,6 +39,47 @@
 		}
 	],
 
+	"students": [
+		{
+			"html": "Xindi Wu (CMU, 2022) <span>&#8594;</span> <i>Princeton</i>"
+		},
+		{
+			"html": "Vladimir Fomenko (TUM, 2022) <span>&#8594;</span> <i>Microsoft</i>"
+		},
+		{
+			"html": "Anirudh S Chakravarthy (CMU, 2022) <span>&#8594;</span> <i>Cruise AI</i>"
+		},
+		{
+			"html": "Meghana Reddy Ganesina (CMU, 2022) <span>&#8594;</span> <i>Zoox</i>"
+		},
+		{
+			"html": "Abhinav Agarwalla (CMU, 2022) <span>&#8594;</span> <i>Argo AI</i>"
+		},
+		{
+			"html": "Vladimir Yugay (TUM, 2022) <span>&#8594;</span> <i>Kaia Health</i>"
+		},
+		{
+			"html": "Alexandr Kim (TUM, 2019-2021) <span>&#8594;</span> <i>Meta</i>"
+		},
+		{
+			"html": "Yang Liu (TUM, 2020) <span>&#8594;</span> <i>Huawei</i>"
+		},	
+		{
+			"html": "Manuel Kolmet (TUM, 2021) <span>&#8594;</span> <i>GLASS Imaging</i>"
+		},
+		{
+			"html": "Mehmet Aygün (TUM, 2020) <span>&#8594;</span> <i>University of Edinburgh</i>"
+		},
+		{
+			"html": "Johannes Gross (RWTH Aachen, 2019)"
+		},
+		{
+			"html": "Deyvid Kochanov (RWTH Aachen, 2016)"
+		},
+		{
+			"html": "Dirk Klostermann (RWTH Aachen, 2015)"
+		}
+	],
 
 	"talks": [{
 			"date": "October 2022",
