@@ -82,6 +82,10 @@
 	],
 
 	"talks": [{
+			"date": "February 2023",
+			"html": "<a href=\"https://fri.uni-lj.si/sl/dogodek/gostujoce-predavanje-learning-understand-world-video\">University of Ljubljana, invited talk: Learning To Understand The World From Video</a>, <a href=\"https://docs.google.com/presentation/d/1w__6jKhNgzwT66oMcUyKgvGJEwgOVMlH-12WAuAHaKc/edit?usp=sharing\">Slides</a>"
+		},
+		{
 			"date": "October 2022",
 			"html": "ECCV’22 Workshop on 3D Perception in Autonomous Driving <a href=\"https://innoviz.tech/eccv-speakers\">Url</a> <a href=\"tbd\">Slides</a>"
 		},
