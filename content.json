@@ -44,7 +44,7 @@
 			"html": "Xindi Wu (CMU, 2022) <span>&#8594;</span> <i>Princeton</i>"
 		},
 		{
-			"html": "Vladimir Fomenko (TUM, 2022) <span>&#8594;</span> <i>Microsoft</i>"
+			"html": "Vladimir Fomenko (TUM, 2022) <span>&#8594;</span> <i>OpenAI</i>"
 		},
 		{
 			"html": "Anirudh S Chakravarthy (CMU, 2022) <span>&#8594;</span> <i>Cruise AI</i>"
@@ -53,10 +53,10 @@
 			"html": "Meghana Reddy Ganesina (CMU, 2022) <span>&#8594;</span> <i>Zoox</i>"
 		},
 		{
-			"html": "Abhinav Agarwalla (CMU, 2022) <span>&#8594;</span> <i>Argo AI</i>"
+			"html": "Abhinav Agarwalla (CMU, 2022) <span>&#8594;</span> <i>prior Argo AI, now Neural Magic</i>"
 		},
 		{
-			"html": "Vladimir Yugay (TUM, 2022) <span>&#8594;</span> <i>Kaia Health</i>"
+			"html": "Vladimir Yugay (TUM, 2022) <span>&#8594;</span> <i>University of Amsterdam</i>"
 		},
 		{
 			"html": "Alexandr Kim (TUM, 2019-2021) <span>&#8594;</span> <i>Meta</i>"
@@ -180,6 +180,9 @@
 
 	],
 	"service": [
+		{
+			"html": "Area Chair (AC) for CVPR, ECCV, WACV, ACCV."
+		},
 
 		{
 			"html": "I am the main organizer of <a href=\"https://motchallenge.net/workshops/bmtt2021\">6th BMTT MOTChallenge Workshop: Segmenting and Tracking Every Point and Pixel</a> at ICCV'21 workshop, and co-organizer of: <a href=\"https://motchallenge.net/workshops/bmtt2022\">7th Workshop on Benchmarking Multi-Target Tracking: How Far Can Synthetic Data Take us?</a> at CVPR'22, <a href=\"http://taodataset.org/workshop/\">Tracking and its many guises Workshop</a> at ECCV'2020, <a href=\"https://motchallenge.net/workshops/bmtt2020\">Multi-Object Tracking and Segmentation Workshop</a> at CVPR'2020."
@@ -187,9 +190,7 @@
 		{
 			"html": "Reviewer for (<i>machine learning, vision conferences</i>) CVPR, ECCV, ICCV, BMVC, NeurIPS, ICML, ICLR; (<i>robotics conferences</i>) ICRA, IROS, RSS; (<i>journals</i>) IJCV, RAL, TPAMI."
 		},
-		{
-			"html": "I am serving as Area Chair (AC) for WACV'21, ACCV'22!"
-		},
+
 		{
 			"html": "I am in RSS Pioneers 2021 program committee and on the ECCV'24 organization team!"
 		}
