@@ -1,7 +1,12 @@
 {
 	"about": "Hi, I'm Aljosa! I am a Senior Research Scientist at NVIDIA, working on learning to understand the dynamic world from raw, unlabeled streams of sensory data. <br><br> I come from the Alpine side of Slovenia. Prior, I obtained my M.Sc. degree at the University of Bonn, and a Ph.D. from the RWTH Aachen University under the supervision of <a href=\"https://www.vision.rwth-aachen.de/person/1/\">Prof. Bastian Leibe</a>. I have had a pleasure of working with <a href=\"https://dvl.in.tum.de/team/lealtaixe/\">Prof. Laura Leal-Taixe</a> (<a href=\"https://dvl.in.tum.de/\">Dynamic Vision and Learning Group</a>) at Technical University of Munich and <a href=\"http://www.cs.cmu.edu/~deva/\">Prof. Deva Ramanan</a> at the Robotics Institute of Carnegie Mellon University.",
 
-	"news": [{
+	"news": [
+		{	"date": "March 2024",
+			"html": "Our <a href=\"https://arxiv.org/abs/2403.13129\">paper</a> on <i>Learning to segment anything in Lidar (SAL)</i> was featured at GTC2024! <a href=\"https://youtu.be/LLSuUBObttE?si=WvQFphni5vX7Es5I\">NVIDIA AI Tools for Autonomous Vehicle Developers</a>."
+
+		},
+		{
 			"date": "September 2022",
 			"html": "Two papers accepted to NeurIPS 2022! Excited to be back to NOLA soon!</a>"
 		},
