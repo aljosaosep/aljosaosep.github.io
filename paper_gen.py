@@ -65,20 +65,20 @@ for idx, entry in enumerate(bib_database.entries):
 		#mypub = "{} {} {}".format("""<p class="bibitem" ><span class="biblabel"></span>""", entry["title"], """</p>""")
 
 
-		mypub_text = "{} {}: <b>{}</b>, {}, {}.  </br> {} {}".format("""<p class="bibitem" ><span class="biblabel"></span>""",  auth, entry["title"], entry[type_key],  entry["year"] , link_gen, """</p>""")
+		mypub = "{} {}: <b>{}</b>, {}, {}.  </br> {}".format("""<p class="bibitem" ><span class="biblabel"></span>""",  auth, entry["title"], entry[type_key],  entry["year"] ,  """</p>""")
 
-		thumb_url = "img/thumb/default.jpg"
-		if "thumb" in entry.keys():
-			thumb_url = "img/thumb/{}".format(entry["thumb"])
+		# thumb_url = "img/thumb/default.jpg"
+		# if "thumb" in entry.keys():
+		# 	thumb_url = "img/thumb/{}".format(entry["thumb"])
 
-		#print (thumb_url)
+		# #print (thumb_url)
 
-		mypub = ""
-		mypub = """<div><div style="float: left; margin: 5px 20px 10px 0px;">"""
-		mypub += "<img src=\"{}\" width=\"200\" height=\"200\" style=\"border-radius: 8px;\"/>".format(thumb_url)
-		#mypub += """<img src="/Users/aljosaosep/Pictures/aljosa_.jpg" width="200" height="200" style="border-radius: 8px;" />"""
-		mypub += """</div><div>"""
-		mypub += mypub_text
+		# mypub = ""
+		# mypub = """<div><div style="float: left; margin: 5px 20px 10px 0px;">"""
+		# mypub += "<img src=\"{}\" width=\"200\" height=\"200\" style=\"border-radius: 8px;\"/>".format(thumb_url)
+		# #mypub += """<img src="/Users/aljosaosep/Pictures/aljosa_.jpg" width="200" height="200" style="border-radius: 8px;" />"""
+		# mypub += """</div><div>"""
+		#mypub += mypub_text
 		mypub += """</div></div><br clear="all" />"""
 
 
@@ -87,15 +87,15 @@ all_pubs += """</div>"""
 		
 
 # === Generate head and body ===
-head = """<!DOCTYPE html><html lang="en"><head><title>{}</title><link rel="stylesheet" href={} /></head>""".format(caption, css)
-body = r'<body><h1>{}</h1>{}<p>{}</p>{} <h2>News</h2>{} <h2>Students Supervised</h2>{} <h2>Service</h2>{} <h2>Talks</h2>{} <h2>Teaching</h2> {} <h2>Publications</h2> {} </body></html>'.format(title, pic, desc, links, gen_news, gen_students, gen_service, gen_talks, gen_teaching, all_pubs)
-
 #head = """<!DOCTYPE html><html lang="en"><head><title>{}</title><link rel="stylesheet" href={} /></head>""".format(caption, css)
-#body = r'<body><h2>Publications</h2> {} </body></html>'.format(all_pubs)
+#body = r'<body><h1>{}</h1>{}<p>{}</p>{} <h2>News</h2>{} <h2>Students Supervised</h2>{} <h2>Service</h2>{} <h2>Talks</h2>{} <h2>Teaching</h2> {} <h2>Publications</h2> {} </body></html>'.format(title, pic, desc, links, gen_news, gen_students, gen_service, gen_talks, gen_teaching, all_pubs)
+
+head = """<!DOCTYPE html><html lang="en"><head><title>{}</title><link rel="stylesheet" href={} /></head>""".format(caption, css)
+body = r'<body><h2>Publications</h2> {} </body></html>'.format(all_pubs)
 
 final = '{}{}'.format(head, body)
 
-htmlout = "index.html"
+htmlout = "pubs.html"
 with open(htmlout, "w") as text_file:
 	print (f"Output: {htmlout}")
 	text_file.write(final)
