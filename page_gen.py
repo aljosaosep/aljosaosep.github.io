@@ -1,4 +1,6 @@
 # Import necessary libraries
+import markdown
+from yaml import safe_load
 import bibtexparser
 from pylatexenc.latex2text import LatexNodes2Text
 import generator_utils as gut
@@ -16,14 +18,65 @@ LINKS = (
     "</b>"
 )
 
-# === Dynamic Content Generation ===
-# Load content from JSON files
-description = gut.get_about_from_json(json_file='content.json')
-news = gut.gen_timestamped_list_from_json(json_file='content.json', source='news')
-talks = gut.gen_timestamped_list_from_json(json_file='content.json', source='talks')
-students = gut.gen_timestamped_list_from_json(json_file='content.json', source='students')
-teaching = gut.gen_timestamped_list_from_json(json_file='content.json', source='teaching')
-service = gut.gen_timestamped_list_from_json(json_file='content.json', source='service')
+# === Load Markdown Content ===
+def load_markdown_with_metadata(file_path):
+    """Load Markdown content and extract frontmatter metadata."""
+    with open(file_path, "r", encoding="utf-8") as f:
+        content = f.read()
+    # Split frontmatter (YAML) and body (Markdown)
+    if content.startswith("---"):
+        _, frontmatter, body = content.split("---", 2)
+        metadata = safe_load(frontmatter)
+    else:
+        metadata = {}
+        body = content
+    html_body = markdown.markdown(body, extensions=["extra", "toc"])
+    return metadata, html_body
+
+# Load main content
+metadata, main_content_html = load_markdown_with_metadata("content.md")
+
+# === Extract Dynamic Sections ===
+news_items = metadata.get("news", [])
+students = metadata.get("students", [])
+talks = metadata.get("talks", [])
+teaching = metadata.get("teaching", [])
+service = metadata.get("service", [])
+
+def render_section(title, items):
+    """Render a section with a list of items, dynamically handling fields and styling dates."""
+    html = f"<h2>{title}</h2><ul>"
+    for item in items:
+        if isinstance(item, dict):
+            # Extract date if present and render it with bold and italic
+            date = item.get("date", "")
+            date_html = f"<b><i>{date}:</i></b>" if date else ""
+            
+            # Dynamically construct the content excluding the date
+            content_parts = [
+                str(value)
+                for key, value in item.items()
+                if key != "date"  # Skip the date field for the main content
+            ]
+            content = " ".join(content_parts)
+            # Process as Markdown and strip unnecessary tags
+            content_html = markdown.markdown(content, extensions=["extra"]).replace("<p>", "").replace("</p>", "")
+            
+            # Combine the date and content inline
+            html += f"<li>{date_html} {content_html}</li>"
+        else:
+            # Handle plain string items
+            html += f"<li>{markdown.markdown(item, extensions=['extra']).strip()}</li>"
+    html += "</ul>"
+    return html
+
+
+
+news_html = render_section("News", news_items)
+students_html = render_section("Students Supervised", students)
+talks_html = render_section("Talks", talks)
+teaching_html = render_section("Teaching", teaching)
+service_html = render_section("Service", service)
 
 # === Publications Generation ===
 bib_file = 'pubs/papers.bib'
@@ -66,21 +119,22 @@ publications_html += "</div>"
 
 # === HTML Page Assembly ===
 head = (
-    f'<!DOCTYPE html><html lang=\"en\"><head><title>{CAPTION}</title>'
-    f'<link rel=\"stylesheet\" href=\"{CSS_LINK}\" /></head>'
+    f'<!DOCTYPE html><html lang="en"><head><title>{CAPTION}</title>'
+    f'<link rel="stylesheet" href="{CSS_LINK}" /></head>'
 )
 body = (
     f'<body>'
     f'<h1>{TITLE}</h1>'
     f'{PROFILE_PICTURE}'
-    f'<p>{description}</p>'
+    f'{main_content_html}'
     f'{LINKS}'
-    f'<h2>News</h2>{news}'
-    f'<h2>Students Supervised</h2>{students}'
-    f'<h2>Service</h2>{service}'
-    f'<h2>Talks</h2>{talks}'
-    f'<h2>Teaching</h2>{teaching}'
+    f'{news_html}'
+    f'{students_html}'
+    f'{talks_html}'
+    f'{teaching_html}'
+    f'{service_html}'
     f'<h2>Publications</h2>{publications_html}'
+    f'</body></html>'
     f'</body></html>'
 )
 
@@ -88,6 +142,6 @@ final_html = f'{head}{body}'
 
 # === Write to File ===
 output_file = "index.html"
-with open(output_file, "w") as file:
+with open(output_file, "w", encoding="utf-8") as file:
     print(f"Output: {output_file}")
     file.write(final_html)
