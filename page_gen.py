@@ -1,4 +1,3 @@
-import os, sys
 import bibtexparser
 from pylatexenc.latex2text import LatexNodes2Text
 
@@ -53,24 +52,14 @@ for idx, entry in enumerate(bib_database.entries):
 		link_entries = ["paper", "video", "poster", "page", "code", "blog", "teaser"]
 		link_gen = ""
 		for kentry in entry.keys():
-			#print (kentry)
 			if kentry in link_entries:
 				link_gen += """<a href="{}" target="_blank">{}</a> """.format(entry[kentry], kentry)
-
-
-		#print ("---LINK GEN---")
-		#print (link_gen)
-
-		#mypub = "{} {} {}".format("""<p class="bibitem" ><span class="biblabel"></span>""", entry["title"], """</p>""")
-
 
 		mypub_text = "{} {}: <b>{}</b>, {}, {}.  </br> {} {}".format("""<p class="bibitem" ><span class="biblabel"></span>""",  auth, entry["title"], entry[type_key],  entry["year"] , link_gen, """</p>""")
 
 		thumb_url = "img/thumb/default.jpg"
 		if "thumb" in entry.keys():
 			thumb_url = "img/thumb/{}".format(entry["thumb"])
-
-		#print (thumb_url)
 
 		mypub = ""
 		mypub = """<div><div style="float: left; margin: 5px 20px 10px 0px;">"""
