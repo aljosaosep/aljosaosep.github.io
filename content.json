@@ -2,12 +2,12 @@
 	"about": "Hi, I'm Aljosa! I am a Senior Research Scientist at NVIDIA, working on learning to understand the dynamic world from raw, unlabeled streams of sensory data. <br><br> I come from the Alpine side of Slovenia. Prior, I obtained my M.Sc. degree at the University of Bonn, and a Ph.D. from the RWTH Aachen University under the supervision of <a href=\"https://www.vision.rwth-aachen.de/person/1/\">Prof. Bastian Leibe</a>. I have had a pleasure of working with <a href=\"https://dvl.in.tum.de/team/lealtaixe/\">Prof. Laura Leal-Taixe</a> (<a href=\"https://dvl.in.tum.de/\">Dynamic Vision and Learning Group</a>) at Technical University of Munich and <a href=\"http://www.cs.cmu.edu/~deva/\">Prof. Deva Ramanan</a> at the Robotics Institute of Carnegie Mellon University.",
 
 	"news": [
+		{	"date": "June 2024",
+			"html": "I joined NVIDIA as a Senior Research Scientist!"
+		},
 		{	"date": "March 2024",
 			"html": "Our <a href=\"https://arxiv.org/abs/2403.13129\">paper</a> on <i>Learning to segment anything in Lidar (SAL)</i> was featured at GTC2024! <a href=\"https://youtu.be/LLSuUBObttE?si=WvQFphni5vX7Es5I\">NVIDIA AI Tools for Autonomous Vehicle Developers</a>."
 
-		},
-		{	"date": "December 2023",
-			"html": "I joined NVIDIA as a Senior Research Scientist! I am excited about all the great things we will build together."
 		},
 		{
 			"date": "September 2022",
@@ -77,7 +77,21 @@
 		}
 	],
 
-	"talks": [{
+	"talks": [
+		{
+			"date": "June 2024",
+			"html": "CVPR 2024 Area Chair Panel, invited talk: Learning To Understand The World From Video, <a href=\"https://docs.google.com/presentation/d/1JCy1TARAlcT0HIT07uRUic1iPsMejIDqYckeRTOvzn8/edit?usp=sharing\">Slides</a>"
+		},		
+		{
+			"date": "June 2023",
+			"html": "<a href=\"\">CVPR 2023, Visual Perception via Learning in an Open World, invited talk: Learning To Understand The World From Video</a>, <a href=\"https://docs.google.com/presentation/d/1DgNPaJm6WWjgNdIjdDiyaLw5d-2Tu5hvraqWJSmGK3g/edit?usp=sharing\">Slides</a>"
+		},
+		{
+			"date": "June 2023",
+			"html": "<a href=\"https://fri.uni-lj.si/sl/dogodek/gostujoce-predavanje-learning-understand-world-video\">University of Ljubljana, invited talk: Learning To Understand The World From Video</a>, <a href=\"https://docs.google.com/presentation/d/1w__6jKhNgzwT66oMcUyKgvGJEwgOVMlH-12WAuAHaKc/edit?usp=sharing\">Slides</a>"
+		},
+
+		{
 			"date": "February 2023",
 			"html": "<a href=\"https://fri.uni-lj.si/sl/dogodek/gostujoce-predavanje-learning-understand-world-video\">University of Ljubljana, invited talk: Learning To Understand The World From Video</a>, <a href=\"https://docs.google.com/presentation/d/1w__6jKhNgzwT66oMcUyKgvGJEwgOVMlH-12WAuAHaKc/edit?usp=sharing\">Slides</a>"
 		},
@@ -177,7 +191,7 @@
 	],
 	"service": [
 		{
-			"html": "Area Chair (AC) for CVPR, ECCV, WACV, ACCV."
+			"html": "Area Chair (AC) for ICLR, CVPR, ECCV, ICCV, WACV, ACCV."
 		},
 
 		{
