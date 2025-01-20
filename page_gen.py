@@ -1,85 +1,93 @@
+# Import necessary libraries
 import bibtexparser
 from pylatexenc.latex2text import LatexNodes2Text
-
 import generator_utils as gut
 
-# === News ===
-desc = gut.get_about_from_json(json_file='content.json') 
+# === Constants and Static Content ===
+CAPTION = "Aljosa's Web Corner"
+TITLE = "Aljosa Osep, Ph.D."
+CSS_LINK = "https://latex.now.sh/style.min.css"  # LaTeX-style CSS
+PROFILE_PICTURE = "<img src=\"img/aljosa.jpg\" alt=\"In Colombia, my fave\" width=\"200\" align=\"left\" style=\"padding:10px;\">"
+LINKS = (
+    "<br><b>"
+    "<a href=\"rss_2020_camready.html\">Research Statement</a> "
+    "<a href=\"https://twitter.com/AljosaOsep\">Twitter</a> "
+    "<a href=\"https://scholar.google.de/scholar?hl=en&as_sdt=0%2C5&q=aljosa+osep&oq=a\">Scholar</a>"
+    "</b>"
+)
 
+# === Dynamic Content Generation ===
+# Load content from JSON files
+description = gut.get_about_from_json(json_file='content.json')
+news = gut.gen_timestamped_list_from_json(json_file='content.json', source='news')
+talks = gut.gen_timestamped_list_from_json(json_file='content.json', source='talks')
+students = gut.gen_timestamped_list_from_json(json_file='content.json', source='students')
+teaching = gut.gen_timestamped_list_from_json(json_file='content.json', source='teaching')
+service = gut.gen_timestamped_list_from_json(json_file='content.json', source='service')
 
-# Most basics stuff
-caption = """Aljosa's Web Corner"""
-title = """Aljosa Osep, Ph.D."""
-css = """https://latex.now.sh/style.min.css""" # Nice LaTeX-style
-pic = """<img src="img/aljosa.jpg" alt="In Colombia, my fave" width="200" align="left" style="padding:10px;">"""
-links = """<br><b><a href="rss_2020_camready.html">Research Statement</a> 
-	<a href="https://twitter.com/AljosaOsep">Twitter</a> 
-	<a href="https://scholar.google.de/scholar?hl=en&as_sdt=0%2C5&q=aljosa+osep&oq=a">Scholar</a></b>"""
+# === Publications Generation ===
+bib_file = 'pubs/papers.bib'
+with open(bib_file) as bibtex_file:
+    bib_database = bibtexparser.load(bibtex_file)
 
+publications_html = "<div class=\"thebibliography\">"
+linkable_keys = ["paper", "video", "poster", "page", "code", "blog", "teaser"]
 
-# === News ===
-gen_news = gut.gen_timestamped_list_from_json(json_file='content.json', source='news') 
+for entry in bib_database.entries:
+    # Parse and abbreviate author names
+    authors = LatexNodes2Text().latex_to_text(entry.get("author", ""))
+    authors = gut.abbrev_authors(authors)
 
-# === Talks ===
-gen_talks = gut.gen_timestamped_list_from_json(json_file='content.json', source='talks') 
+    # Determine publication type (booktitle or journal)
+    pub_type = entry.get("booktitle", entry.get("journal", ""))
 
-# === Students ===
-gen_students = gut.gen_timestamped_list_from_json(json_file='content.json', source='students') 
+    # Generate links for additional resources
+    additional_links = "".join(
+        f'<a href=\"{entry[key]}\" target=\"_blank\">{key}</a> '
+        for key in linkable_keys if key in entry
+    )
 
-# === Teaching ===
-gen_teaching = gut.gen_timestamped_list_from_json(json_file='content.json', source='teaching') 
+    # Handle thumbnails
+    thumb_file = entry.get("thumb", "default.jpg")  # Default to "default.jpg" if "thumb" is not in the entry
+    thumb_url = f"img/thumb/{thumb_file}"  # Prepend the directory path
 
-# === Teaching ===
-gen_service = gut.gen_timestamped_list_from_json(json_file='content.json', source='service') 
+    # Generate publication entry
+    pub_html = (
+        f'<div><div style=\"float: left; margin: 5px 20px 10px 0px;\">'
+        f'<img src=\"{thumb_url}\" width=\"200\" height=\"200\" style=\"border-radius: 8px;\" />'
+        f'</div><div>'
+        f'<p class=\"bibitem\"><span class=\"biblabel\"></span> {authors}: <b>{entry.get("title", "")}</b>, {pub_type}, {entry.get("year", "")}.<br>{additional_links}</p>'
+        f'</div></div><br clear=\"all\" />'
+    )
 
-# === Generate pubs ===
-bibfile = 'pubs/papers.bib'
-with open(bibfile) as bibtex_file:
-	bib_database = bibtexparser.load(bibtex_file)
+    publications_html += pub_html
 
+publications_html += "</div>"
 
-all_pubs = """<div class="thebibliography">"""
-for idx, entry in enumerate(bib_database.entries):
+# === HTML Page Assembly ===
+head = (
+    f'<!DOCTYPE html><html lang=\"en\"><head><title>{CAPTION}</title>'
+    f'<link rel=\"stylesheet\" href=\"{CSS_LINK}\" /></head>'
+)
+body = (
+    f'<body>'
+    f'<h1>{TITLE}</h1>'
+    f'{PROFILE_PICTURE}'
+    f'<p>{description}</p>'
+    f'{LINKS}'
+    f'<h2>News</h2>{news}'
+    f'<h2>Students Supervised</h2>{students}'
+    f'<h2>Service</h2>{service}'
+    f'<h2>Talks</h2>{talks}'
+    f'<h2>Teaching</h2>{teaching}'
+    f'<h2>Publications</h2>{publications_html}'
+    f'</body></html>'
+)
 
-		auth = LatexNodes2Text().latex_to_text(entry["author"])
-		auth = gut.abbrev_authors(auth)
+final_html = f'{head}{body}'
 
-		# Should be 'booktitle' or 'journal'
-		type_key = "booktitle"
-		if type_key not in entry:
-				type_key = "journal"
-
-		link_entries = ["paper", "video", "poster", "page", "code", "blog", "teaser"]
-		link_gen = ""
-		for kentry in entry.keys():
-			if kentry in link_entries:
-				link_gen += """<a href="{}" target="_blank">{}</a> """.format(entry[kentry], kentry)
-
-		mypub_text = "{} {}: <b>{}</b>, {}, {}.  </br> {} {}".format("""<p class="bibitem" ><span class="biblabel"></span>""",  auth, entry["title"], entry[type_key],  entry["year"] , link_gen, """</p>""")
-
-		thumb_url = "img/thumb/default.jpg"
-		if "thumb" in entry.keys():
-			thumb_url = "img/thumb/{}".format(entry["thumb"])
-
-		mypub = ""
-		mypub = """<div><div style="float: left; margin: 5px 20px 10px 0px;">"""
-		mypub += "<img src=\"{}\" width=\"200\" height=\"200\" style=\"border-radius: 8px;\"/>".format(thumb_url)
-		#mypub += """<img src="/Users/aljosaosep/Pictures/aljosa_.jpg" width="200" height="200" style="border-radius: 8px;" />"""
-		mypub += """</div><div>"""
-		mypub += mypub_text
-		mypub += """</div></div><br clear="all" />"""
-
-
-		all_pubs += mypub
-all_pubs += """</div>"""
-		
-
-# === Generate head and body ===
-head = """<!DOCTYPE html><html lang="en"><head><title>{}</title><link rel="stylesheet" href={} /></head>""".format(caption, css)
-body = r'<body><h1>{}</h1>{}<p>{}</p>{} <h2>News</h2>{} <h2>Students Supervised</h2>{} <h2>Service</h2>{} <h2>Talks</h2>{} <h2>Teaching</h2> {} <h2>Publications</h2> {} </body></html>'.format(title, pic, desc, links, gen_news, gen_students, gen_service, gen_talks, gen_teaching, all_pubs)
-final = '{}{}'.format(head, body)
-
-htmlout = "index.html"
-with open(htmlout, "w") as text_file:
-	print (f"Output: {htmlout}")
-	text_file.write(final)
+# === Write to File ===
+output_file = "index.html"
+with open(output_file, "w") as file:
+    print(f"Output: {output_file}")
+    file.write(final_html)
