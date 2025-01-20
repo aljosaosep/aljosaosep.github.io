@@ -1,5 +1,4 @@
-
-# Academic Webpage Generator
+# Aljosa's Academic Webpage Generator
 
 This repository provides a Python-based generator to create a professional academic webpage. Content is specified in a combination of Markdown and BibTeX, making it easy to manage and update.
 
