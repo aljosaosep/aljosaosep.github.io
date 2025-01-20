@@ -5,19 +5,6 @@ import bibtexparser
 from pylatexenc.latex2text import LatexNodes2Text
 import generator_utils as gut
 
-# === Constants and Static Content ===
-CAPTION = "Aljosa's Web Corner"
-TITLE = "Aljosa Osep, Ph.D."
-CSS_LINK = "https://latex.now.sh/style.min.css"  # LaTeX-style CSS
-PROFILE_PICTURE = "<img src=\"img/aljosa.jpg\" alt=\"In Colombia, my fave\" width=\"200\" align=\"left\" style=\"padding:10px;\">"
-LINKS = (
-    "<br><b>"
-    "<a href=\"rss_2020_camready.html\">Research Statement</a> "
-    "<a href=\"https://twitter.com/AljosaOsep\">Twitter</a> "
-    "<a href=\"https://scholar.google.de/scholar?hl=en&as_sdt=0%2C5&q=aljosa+osep&oq=a\">Scholar</a>"
-    "</b>"
-)
-
 # === Load Markdown Content ===
 def load_markdown_with_metadata(file_path):
     """Load Markdown content and extract frontmatter metadata."""
@@ -36,6 +23,13 @@ def load_markdown_with_metadata(file_path):
 # Load main content
 metadata, main_content_html = load_markdown_with_metadata("content.md")
 
+# === Access Meta Constants ===
+caption = metadata['meta']['caption']
+title = metadata['meta']['title']
+css_link = metadata['meta']['css_link']
+profile_picture = metadata['meta']['profile_picture']
+links = metadata['meta']['links']
+
 # === Extract Dynamic Sections ===
 news_items = metadata.get("news", [])
 students = metadata.get("students", [])
@@ -43,6 +37,7 @@ talks = metadata.get("talks", [])
 teaching = metadata.get("teaching", [])
 service = metadata.get("service", [])
 
+# === Render Sections ===
 def render_section(title, items):
     """Render a section with a list of items, dynamically handling fields and styling dates."""
     html = f"<h2>{title}</h2><ul>"
@@ -70,8 +65,7 @@ def render_section(title, items):
     html += "</ul>"
     return html
 
-
-
+# Render each section
 news_html = render_section("News", news_items)
 students_html = render_section("Students Supervised", students)
 talks_html = render_section("Talks", talks)
@@ -119,22 +113,21 @@ publications_html += "</div>"
 
 # === HTML Page Assembly ===
 head = (
-    f'<!DOCTYPE html><html lang="en"><head><title>{CAPTION}</title>'
-    f'<link rel="stylesheet" href="{CSS_LINK}" /></head>'
+    f'<!DOCTYPE html><html lang="en"><head><title>{caption}</title>'
+    f'<link rel="stylesheet" href="{css_link}" /></head>'
 )
 body = (
     f'<body>'
-    f'<h1>{TITLE}</h1>'
-    f'{PROFILE_PICTURE}'
+    f'<h1>{title}</h1>'
+    f'{profile_picture}'
     f'{main_content_html}'
-    f'{LINKS}'
+    f'{links}'
     f'{news_html}'
     f'{students_html}'
     f'{talks_html}'
     f'{teaching_html}'
     f'{service_html}'
     f'<h2>Publications</h2>{publications_html}'
-    f'</body></html>'
     f'</body></html>'
 )
 
