@@ -13,9 +13,9 @@ caption = """Aljosa's Web Corner"""
 title = """Aljosa Osep, Ph.D."""
 css = """https://latex.now.sh/style.min.css""" # Nice LaTeX-style
 pic = """<img src="img/aljosa.jpg" alt="In Colombia, my fave" width="200" align="left" style="padding:10px;">"""
-links = """<br><b><a href="rss_2020_camready.html">Research Statement (2019)</a> 
+links = """<br><b><a href="rss_2020_camready.html">Research Statement</a> 
 	<a href="https://twitter.com/AljosaOsep">Twitter</a> 
-	<a href="https://scholar.google.de/scholar?hl=en&as_sdt=0%2C5&q=aljosa+osep&oq=a">Scholar</a>"""
+	<a href="https://scholar.google.de/scholar?hl=en&as_sdt=0%2C5&q=aljosa+osep&oq=a">Scholar</a></b>"""
 
 
 # === News ===
