@@ -43,6 +43,15 @@ news:
       [evidence](https://photos.app.goo.gl/uMeWKNmqPUcuwyXQ6).
 
 students:
+  - name: "Ayça Takmaz"
+    affiliation: "(NVIDIA, intern)"
+    next_step: "<i>ETH Zurich</i>"
+  - name: "Yushan Zhang"
+    affiliation: "(NVIDIA, intern)"
+    next_step: "<i>Linköping University</i>"
+  - name: "Neehar Peri"
+    affiliation: "(NVIDIA, intern)"
+    next_step: "<i>Carnegie Mellon University</i>"
   - name: "Xindi Wu"
     affiliation: "(CMU, 2022)"
     next_step: "→ <i>Princeton</i>"
@@ -70,6 +79,12 @@ students:
   - name: "Manuel Kolmet"
     affiliation: "(TUM, 2021)"
     next_step: "→ <i>GLASS Imaging</i>"
+  - name: "Anselm Coogan"
+    affiliation: "(TUM, 2021)"
+    next_step: "→ <i>Scandit</i>"
+  - name: "Maximilian Kempa"
+    affiliation: "(TUM, 2020)"
+    next_step: "→ <i>Bosch</i>"
   - name: "Mehmet Aygün"
     affiliation: "(TUM, 2020)"
     next_step: "→ <i>University of Edinburgh</i>"
