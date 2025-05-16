@@ -294,4 +294,4 @@ service:
 
 Hi, I'm Aljosa! I am a Senior Research Scientist at NVIDIA, working on learning to understand the dynamic world from raw, unlabeled streams of sensory data.
 
-I come from the Alpine side of Slovenia. Prior, I obtained my M.Sc. degree at the University of Bonn, and a Ph.D. from the RWTH Aachen University under the supervision of [Prof. Bastian Leibe](https://www.vision.rwth-aachen.de/person/1/). I have had the pleasure of working with [Prof. Laura Leal-Taixe](https://dvl.in.tum.de/team/lealtaixe/) ([Dynamic Vision and Learning Group](https://dvl.in.tum.de/)) at Technical University of Munich and [Prof. Deva Ramanan](http://www.cs.cmu.edu/~deva/) at the Robotics Institute of Carnegie Mellon University.
+I come from the Alpine side of Slovenia. I earned my Ph.D. from RWTH Aachen University under the supervision of [Prof. Bastian Leibe](https://www.vision.rwth-aachen.de/person/1/). I was a postdoctoral fellow at the Technical University of Munich and the Robotics Institute, Carnegie Mellon University.
