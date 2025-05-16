@@ -10,6 +10,76 @@ meta:
     <a href="https://twitter.com/AljosaOsep">Twitter</a>
     <a href="https://scholar.google.de/scholar?hl=en&as_sdt=0%2C5&q=aljosa+osep&oq=a">Scholar</a>
     </b>
+
+
+research_topics:
+  description: |
+    My research focuses on enabling AI systems to robustly understand the dynamic, 3D world from raw sensor streams, such as video and LiDAR. Key areas include learning directly from raw data, tracking and segmenting objects, understanding complex spatiotemporal scenes, and predicting future events in open-world environments. Hover over each topic below to explore related publications.
+
+  topics:
+    - title: "Learning From Raw Sensory Data"
+      image: "osep_icra_2019.jpg"
+      papers:
+        - title: "Large-Scale Object Mining for Object Discovery from Unlabeled Video (ICRA 2019)"
+          link: "https://arxiv.org/pdf/1903.00362"
+        - title: "4D Generic Video Object Proposals (ICRA 2020)"
+          link: "https://arxiv.org/pdf/1901.09260"
+        - title: "Learning to Discover and Detect Objects (NeurIPS 2022)"
+          link: "https://arxiv.org/abs/2210.10774"
+        - title: "Pix2Map: Cross-modal Retrieval for Inferring Street Maps from Images (CVPR 2023)"
+          link: "https://arxiv.org/abs/2301.04224"
+        - title: "What Moves Together Belongs Together (CVPR 2024)"
+          link: "https://arxiv.org/abs/2402.19463"
+        - title: "Better Call SAL: Towards Learning to Segment Anything in Lidar (ECCV 2024)" 
+          link: "https://arxiv.org/abs/2403.13129"
+        - title: "Towards Learning to Complete Anything in Lidar (ICML 2025)"
+          link: "https://arxiv.org/abs/2504.12264"
+  
+    - title: "4D Scene Understanding"
+      image: "ayguen_cvpr_2021.jpg"
+      papers:
+        - title: "Scene Flow Propagation for Semantic Mapping and Object Discovery in Dynamic Street Scenes (IROS 2016)"
+          link: "https://www.vision.rwth-aachen.de/media/papers/paper_compressed.pdf"
+        - title: "4D Generic Video Object Proposals (ICRA 2020)"
+          link: "https://arxiv.org/pdf/1901.09260"
+        - title: "4D Panoptic LiDAR Segmentation (CVPR 2021)"
+          link: "https://arxiv.org/abs/2102.12472"
+        - title: "Zero-Shot 4D Lidar Panoptic Segmentation (CVPR 2025)"
+          link: "https://arxiv.org/abs/2504.00848"
+
+
+    - title: "Tracking and Panoptic Perception"
+      image: "liu_cvpr_2022.jpg"
+      papers:
+        - title: "Combined Image- and World-Space Tracking in Traffic Scenes (ICRA 2017)"
+          link: "https://arxiv.org/abs/1809.07357"
+        - title: "Track, then Decide: Category-Agnostic Vision-based Multi-Object Tracking (ICRA 2018)"
+          link: "https://arxiv.org/abs/1712.07920"
+        - title: "MOTS: Multi-Object Tracking and Segmentation (CVPR 2019)"
+          link: "https://arxiv.org/abs/1902.03604"
+        - title: "HOTA: A Higher Order Metric for Evaluating Multi-Object Tracking (IJCV 2020)"
+          link: "https://arxiv.org/pdf/2009.07736.pdf"
+        - title: "STEP: Segmenting and Tracking Every Pixel (NeurIPS Datasets 2022)"
+          link: "https://arxiv.org/abs/2102.11859"
+        - title: "Opening up Open-World Tracking (CVPR 2022)"
+          link: "https://arxiv.org/abs/2104.11221"
+        - title: "PolarMOT: How far can geometric relations take us in 3D multi-object tracking? (ECCV 2022)"
+          link: "https://arxiv.org/abs/2208.01957"
+        - title: "EagerMOT: 3D Multi-Object Tracking via Sensor Fusion (ICRA 2021)"
+          link: "https://arxiv.org/abs/2104.14682"
+
+
+    - title: "Forecasting & Behavioral AI"
+      image: "dendorfer_accv_2020.jpg"
+      papers:
+        - title: "Unsupervised Learning of Shape-Motion Patterns for Objects in Urban Street Scenes (BMVC 2016)"
+          link: "https://www.vision.rwth-aachen.de/media/papers/bmvc16_klostermann_final.pdf"
+        - title: "Quo Vadis: Is Trajectory Forecasting the Key Towards Long-Term Multi-Object Tracking? (NeurIPS 2022)"
+          link: "https://arxiv.org/abs/2210.07681"
+        - title: "Forecasting from LiDAR via Future Object Detection (CVPR 2022)"
+          link: "https://arxiv.org/abs/2203.16297"
+
+
 news:
   - date: "June 2024"
     title: "I joined NVIDIA as a Senior Research Scientist!"
