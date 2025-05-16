@@ -18,7 +18,7 @@ research_topics:
 
   topics:
     - title: "Learning From Raw Sensory Data"
-      image: "osep_icra_2019.jpg"
+      image: "raw.gif"
       papers:
         - title: "Large-Scale Object Mining for Object Discovery from Unlabeled Video (ICRA 2019)"
           link: "https://arxiv.org/pdf/1903.00362"
@@ -36,7 +36,7 @@ research_topics:
           link: "https://arxiv.org/abs/2504.12264"
   
     - title: "4D Scene Understanding"
-      image: "ayguen_cvpr_2021.jpg"
+      image: "cal_vid.gif"
       papers:
         - title: "Scene Flow Propagation for Semantic Mapping and Object Discovery in Dynamic Street Scenes (IROS 2016)"
           link: "https://www.vision.rwth-aachen.de/media/papers/paper_compressed.pdf"
@@ -49,7 +49,7 @@ research_topics:
 
 
     - title: "Tracking and Panoptic Perception"
-      image: "liu_cvpr_2022.jpg"
+      image: "tubes_4d.gif"
       papers:
         - title: "Combined Image- and World-Space Tracking in Traffic Scenes (ICRA 2017)"
           link: "https://arxiv.org/abs/1809.07357"
