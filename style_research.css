@@ -1,0 +1,101 @@
+/* --- Styles for the Research Topics Section --- */
+.research-topics-container {
+    margin-top: 30px; /* Add some space above the section */
+    margin-bottom: 30px; /* Add some space below the section */
+}
+
+.topics-grid {
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow topics to wrap on smaller screens */
+    justify-content: center; /* Center topics */
+    gap: 20px; /* Space between topics */
+}
+
+.topic-container {
+    position: relative; /* Needed for absolute positioning of the popup */
+    width: 250px; /* <--- CHANGE THIS VALUE (e.g., from 200px to 250px or 300px) */
+    text-align: center;
+    cursor: pointer; /* Indicate it's interactive */
+    overflow: visible; /* Ensure the popup is not cut off */
+    /* Add/adjust margin/padding here if needed for spacing between boxes */
+    margin: 2px; /* Example: add some margin */
+}
+
+.topic {
+    border: 1px solid #ddd; /* Optional: Add a border around the topic */
+    padding: 10px;
+    background-color: #f9f9f9; /* Optional: Light background */
+    border-radius: 8px;
+    height: 100%; /* Make the topic fill the container height */
+    display: flex; /* Use flex to center content inside topic */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.topic img {
+    max-width: 100%; /* Ensure image fits within the topic div */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 4px; /* Optional: Rounded corners for image */
+    margin-bottom: 5px; /* Space between image and text */
+}
+
+.topic strong {
+    display: block; /* Make text appear below the image */
+    margin-top: 5px;
+}
+
+
+.popup {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Position below the topic container */
+    left: 0; /* Align to the left edge of the topic container */
+    right: 0; /* Stretch to the right edge */
+    z-index: 10; /* Ensure it appears on top */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    margin-top: 5px; /* Space between topic and popup */
+    border-radius: 8px;
+    text-align: left; /* Align text left inside popup */
+    max-width: 400px; /* Limit popup width */
+    width: max-content; /* Adjust width to content */
+    min-width: 200px; /* Minimum width */
+    transform: translateX(calc(-50% + 100px)); /* Adjust to center roughly below the topic */
+}
+
+.topic-container:hover .popup {
+    display: block; /* Show on hover */
+}
+
+.popup h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.popup ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+.popup li {
+    margin-bottom: 8px;
+}
+
+.popup li a {
+     text-decoration: none; /* Remove underline from links */
+     color: #007bff; /* Link color */
+}
+
+.popup li a:hover {
+     text-decoration: underline; /* Underline on hover */
+}
+
+/* Optional: style to clear floats from previous sections if needed */
+.clear {
+    clear: both;
+}
