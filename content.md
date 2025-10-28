@@ -81,6 +81,10 @@ research_topics:
 
 
 news:
+  - date: "October 2025"
+    title: "Having a talk about recent research at the legendary GRASP lab at UPenn on segmenting what we cannot (directly) see 👻: [link](https://www.grasp.upenn.edu/events/fall-2025-grasp-seminar-aljosa-osep/)."
+  - date: "June 2024"
+    title: "Having a talk at the CVPR Area Chair meeting, titled *Learning To Understand The World From Video*."
   - date: "June 2024"
     title: "I joined NVIDIA as a Senior Research Scientist!"
   - date: "March 2024"
