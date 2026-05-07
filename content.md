@@ -4,12 +4,7 @@ meta:
   title: "Aljosa Osep, Ph.D."
   css_link: "https://latex.now.sh/style.min.css"
   profile_picture: "<img src=\"img/aljosa.jpg\" alt=\"In Colombia, my fave\" width=\"200\" align=\"left\" style=\"padding:10px;\">"
-  links: >
-    <br><b>
-    <a href="rss_2020_camready.html">Research Statement (2019)</a>
-    <a href="https://twitter.com/AljosaOsep">Twitter</a>
-    <a href="https://scholar.google.de/scholar?hl=en&as_sdt=0%2C5&q=aljosa+osep&oq=a">Scholar</a>
-    </b>
+  links: ""
 
 
 research_topics:

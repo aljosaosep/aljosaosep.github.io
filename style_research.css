@@ -1,3 +1,41 @@
+/* --- Section Navigation Bar --- */
+.section-nav {
+    margin: 24px 0 8px 0;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-sections a {
+    margin-right: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 0.95em;
+}
+
+.nav-sections a:hover {
+    text-decoration: underline;
+}
+
+.nav-icons a {
+    margin-left: 14px;
+    text-decoration: none;
+    opacity: 0.55;
+    color: inherit;
+}
+
+.nav-icons a:hover {
+    opacity: 1;
+}
+
+.nav-icons svg {
+    vertical-align: middle;
+    display: inline-block;
+}
+
 /* --- Styles for the Research Topics Section --- */
 .research-topics-container {
     margin-top: 30px; /* Add some space above the section */
