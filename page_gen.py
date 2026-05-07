@@ -71,9 +71,7 @@ links_html = metadata.get('meta', {}).get('links', '')
 
 # === Extract Dynamic Sections ===
 news_items = metadata.get("news", [])
-students = metadata.get("students", [])
 talks = metadata.get("talks", [])
-teaching = metadata.get("teaching", [])
 service = metadata.get("service", [])
 research_topics = metadata.get("research_topics", [])
 
@@ -179,9 +177,7 @@ def render_research_topics_section(research_data):
 
 # Render each section
 news_html = render_section("News", news_items)
-students_html = render_section("Students Supervised", students)
 talks_html = render_section("Talks", talks)
-teaching_html = render_section("Teaching", teaching)
 service_html = render_section("Service", service)
 research_topics_html = render_research_topics_section(research_topics)
 
@@ -261,9 +257,7 @@ body = (
     f'{links_html}\n'
     f'{research_topics_html}\n'
     f'{news_html}\n'
-    f'{students_html}\n'
     f'{talks_html}\n'
-    f'{teaching_html}\n'
     f'{service_html}\n'
     f'<h2>Publications</h2>{publications_html}\n'
     '</body>\n'

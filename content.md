@@ -116,60 +116,6 @@ news:
       Learned how to make pancakes! Check out the
       [evidence](https://photos.app.goo.gl/uMeWKNmqPUcuwyXQ6).
 
-students:
-  - name: "Ayça Takmaz"
-    affiliation: "(NVIDIA, intern)"
-    next_step: "<i>ETH Zurich</i>"
-  - name: "Yushan Zhang"
-    affiliation: "(NVIDIA, intern)"
-    next_step: "<i>Linköping University</i>"
-  - name: "Neehar Peri"
-    affiliation: "(NVIDIA, intern)"
-    next_step: "<i>Carnegie Mellon University</i>"
-  - name: "Xindi Wu"
-    affiliation: "(CMU, 2022)"
-    next_step: "→ <i>Princeton</i>"
-  - name: "Vladimir Fomenko"
-    affiliation: "(TUM, 2022)"
-    next_step: "→ <i>Microsoft, OpenAI</i>"
-  - name: "Anirudh S Chakravarthy"
-    affiliation: "(CMU, 2022)"
-    next_step: "→ <i>Cruise AI</i>"
-  - name: "Meghana Reddy Ganesina"
-    affiliation: "(CMU, 2022)"
-    next_step: "→ <i>Zoox</i>"
-  - name: "Abhinav Agarwalla"
-    affiliation: "(CMU, 2022)"
-    next_step: "→ <i>Prior Argo AI, now Neural Magic</i>"
-  - name: "Vladimir Yugay"
-    affiliation: "(TUM, 2022)"
-    next_step: "→ <i>University of Amsterdam</i>"
-  - name: "Alexandr Kim"
-    affiliation: "(TUM, 2019-2021)"
-    next_step: "→ <i>Meta</i>"
-  - name: "Yang Liu"
-    affiliation: "(TUM, 2020)"
-    next_step: "→ <i>Huawei</i>"
-  - name: "Manuel Kolmet"
-    affiliation: "(TUM, 2021)"
-    next_step: "→ <i>GLASS Imaging</i>"
-  - name: "Anselm Coogan"
-    affiliation: "(TUM, 2021)"
-    next_step: "→ <i>Scandit</i>"
-  - name: "Maximilian Kempa"
-    affiliation: "(TUM, 2020)"
-    next_step: "→ <i>Bosch</i>"
-  - name: "Mehmet Aygün"
-    affiliation: "(TUM, 2020)"
-    next_step: "→ <i>University of Edinburgh</i>"
-  - name: "Johannes Gross"
-    affiliation: "(RWTH Aachen, 2019)"
-  - name: "Deyvid Kochanov"
-    affiliation: "(RWTH Aachen, 2016)"
-  - name: "Dirk Klostermann"
-    affiliation: "(RWTH Aachen, 2015)"
-    next_step: "→  <i>BMW</i>"
-
 talks:
   - date: "June 2024"
     title: >
@@ -247,35 +193,6 @@ talks:
       Carnegie Mellon University VASC Seminar,
       [Slides](https://docs.google.com/presentation/d/e/2PACX-1vTKleY9LI8z4Tc2FIXVd0woFKqMlkXjGwPpNOZTtw1VDUCucoxce4FFCe0Mi6g_wIrtCRv6kv3tw3Wk/pub?start=false&loop=false&delayms=3000)
 
-
-teaching:
-  - date: "Summer 2022"
-    title: >
-      Lecturer for [IN2375: Computer Vision III: Detection, Segmentation and Tracking (CV3DST)](https://dvl.in.tum.de/teaching/cv3dst-ss22/) (TU Munich)
-  - date: "Summer 2022"
-    title: >
-      Lecturer for [IN2346: Introduction to Deep Learning (I2DL)](https://dvl.in.tum.de/teaching/i2dl-ss22/) (TU Munich)
-  - date: "Winter 2020/21"
-    title: >
-      [IN2157: Fundamental Algorithms](https://dvl.in.tum.de/teaching/fundalg-ws20/) (TU Munich, lecturer)
-  - date: "Summer 2019/20"
-    title: >
-      IN2375: Computer Vision 3: Detection, Segmentation and Tracking (TU Munich, guest lecturer),
-      [Lectures available on YouTube](https://t.co/tTTtpKN2pi?amp=1)
-  - date: "Winter 2019/20"
-    title: >
-      IN2157: Fundamental Algorithms (TU Munich, lecturer),
-      [TUM Moodle](https://www.moodle.tum.de/course/view.php?id=52150),
-      IN2375: Computer Vision 3: Detection, Segmentation and Tracking (TU Munich, guest lecturer)
-  - date: "Summer 2016/17"
-    title: >
-      Machine Learning (RWTH Aachen, exercise class)
-  - date: "Winter 2014/15"
-    title: >
-      Computer Vision (RWTH Aachen, exercise class)
-  - date: "Winter 2013/14"
-    title: >
-      Machine Learning (RWTH Aachen, exercise class)
 
 service:
   - title: >
