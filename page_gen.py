@@ -70,9 +70,7 @@ profile_picture_html = metadata.get('meta', {}).get('profile_picture', '')
 links_html = metadata.get('meta', {}).get('links', '')
 
 # === Extract Dynamic Sections ===
-news_items = metadata.get("news", [])
-talks = metadata.get("talks", [])
-service = metadata.get("service", [])
+academic_engagements = metadata.get("academic_engagements", {})
 research_topics = metadata.get("research_topics", [])
 
 # === Render Generic Sections ===
@@ -176,10 +174,32 @@ def render_research_topics_section(research_data):
 
     return html
 
+# === Render Academic Engagements Section ===
+def render_academic_engagements(data):
+    if not data:
+        return ""
+    html = '<h2 id="engagements">Academic Engagements</h2>\n'
+    subsections = [("talks", "Talks"), ("service", "Service"), ("etc", "Etc")]
+    for key, label in subsections:
+        items = data.get(key, [])
+        if not items:
+            continue
+        html += f'<h3>{label}</h3><ul>'
+        for item in items:
+            if isinstance(item, dict):
+                date = item.get("date", "")
+                date_html = f"<b><i>{date}:</i></b>" if date else ""
+                content_parts = [str(v) for k, v in item.items() if k != "date"]
+                content = " ".join(content_parts)
+                content_html = markdown.markdown(content, extensions=["extra"]).replace("<p>", "").replace("</p>", "").strip()
+                html += f"<li>{date_html} {content_html}</li>"
+            else:
+                html += f"<li>{markdown.markdown(str(item), extensions=['extra']).strip()}</li>"
+        html += '</ul>'
+    return html
+
 # Render each section
-news_html = render_section("News", news_items)
-talks_html = render_section("Talks", talks)
-service_html = render_section("Service", service)
+academic_engagements_html = render_academic_engagements(academic_engagements)
 research_topics_html = render_research_topics_section(research_topics)
 
 # === Navigation Bar ===
@@ -219,9 +239,7 @@ nav_html = (
     '<nav class="section-nav">\n'
     '  <span class="nav-sections">\n'
     '    <a href="#research">Research</a>\n'
-    '    <a href="#news">News</a>\n'
-    '    <a href="#talks">Talks</a>\n'
-    '    <a href="#service">Service</a>\n'
+    '    <a href="#engagements">Engagements</a>\n'
     '    <a href="#publications">Publications</a>\n'
     '  </span>\n'
     '  <span class="nav-icons">\n'
@@ -308,9 +326,7 @@ body = (
     f'{links_html}\n'
     f'{nav_html}\n'
     f'{research_topics_html}\n'
-    f'{news_html}\n'
-    f'{talks_html}\n'
-    f'{service_html}\n'
+    f'{academic_engagements_html}\n'
     f'<h2 id="publications">Publications</h2>{publications_html}\n'
     '</body>\n'
     '</html>'

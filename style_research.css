@@ -36,7 +36,20 @@
     display: inline-block;
 }
 
+/* --- Section Separators --- */
+h2 {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
 /* --- Styles for the Research Topics Section --- */
+.research-topics-container h2 {
+    border-top: none;
+    margin-top: 24px;
+    padding-top: 0;
+}
+
 .research-topics-container {
     margin-top: 30px; /* Add some space above the section */
     margin-bottom: 30px; /* Add some space below the section */
