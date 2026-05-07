@@ -7,6 +7,12 @@ meta:
   links: ""
 
 
+selected_publications:
+  - sven2026vgttt
+  - osep24sal
+  - takmaz2025cal
+  - Osep20ICRA
+
 research_topics:
   description: |
     My research focuses on enabling AI systems to robustly understand the dynamic, 3D world from raw sensor streams, such as video and LiDAR. Key areas include learning directly from raw data, tracking and segmenting objects, understanding complex spatiotemporal scenes, and predicting future events in open-world environments. Hover over each topic below to explore related publications.
@@ -83,8 +89,7 @@ academic_engagements:
         [link](https://www.grasp.upenn.edu/events/fall-2025-grasp-seminar-aljosa-osep/)
     - date: "June 2024"
       title: >
-        CVPR 2024 Area Chair Panel, invited talk: Learning To Understand The World From Video,
-        [Slides](https://docs.google.com/presentation/d/1JCy1TARAlcT0HIT07uRUic1iPsMejIDqYckeRTOvzn8/edit?usp=sharing)
+        CVPR 2024 Area Chair Panel, invited talk: Learning To Understand The World From Video
     - date: "June 2023"
       title: >
         CVPR 2023, Visual Perception via Learning in an Open World, invited talk:
@@ -92,11 +97,7 @@ academic_engagements:
         [Slides](https://docs.google.com/presentation/d/1DgNPaJm6WWjgNdIjdDiyaLw5d-2Tu5hvraqWJSmGK3g/edit?usp=sharing)
     - date: "June 2023"
       title: >
-        [University of Ljubljana, invited talk: Learning To Understand The World From Video](https://fri.uni-lj.si/sl/dogodek/gostujoce-predavanje-learning-understand-world-video),
-        [Slides](https://docs.google.com/presentation/d/1w__6jKhNgzwT66oMcUyKgvGJEwgOVMlH-12WAuAHaKc/edit?usp=sharing)
-    - date: "February 2023"
-      title: >
-        [University of Ljubljana, invited talk: Learning To Understand The World From Video](https://fri.uni-lj.si/sl/dogodek/gostujoce-predavanje-learning-understand-world-video),
+        University of Ljubljana, invited talk: Learning To Understand The World From Video,
         [Slides](https://docs.google.com/presentation/d/1w__6jKhNgzwT66oMcUyKgvGJEwgOVMlH-12WAuAHaKc/edit?usp=sharing)
     - date: "October 2022"
       title: >
@@ -106,10 +107,6 @@ academic_engagements:
       title: >
         ECCV’22 Workshop on Cross-Modal Human-Robot Interaction,
         [Details](https://cross-modal-human-robot-interaction.github.io/speakers.html)
-    - date: "June 2022"
-      title: >
-        Slovenian data-science meetup talk (in Slovenian),
-        [Slides](https://docs.google.com/presentation/d/1snIpyxQaFQYvSvx_V56I1VVqow-3UlSlDw9gIEH8IsI/edit?usp=sharing)
     - date: "April 2022"
       title: >
         UT Austin AI colloquium, **Unifying Segmentation, Tracking, and Forecasting**,
@@ -138,14 +135,6 @@ academic_engagements:
       title: >
         Cornell Robotics Seminar,
         [Slides](https://docs.google.com/presentation/d/1r19VsfVVRboE-kb4dVCUqz8xNeWKtmxqHDNj27kR4Us/edit?usp=sharing)
-    - date: "September 2020"
-      title: >
-        University of Bonn - Research talk,
-        [Slides](https://docs.google.com/presentation/d/1GCDF-FBnXW9i0NrSTqB20BRgpN3uOMxWgGwp3XVzc5A/edit?usp=sharing)
-    - date: "June 2019"
-      title: >
-        RWTH Aachen University - Thesis Defense,
-        [Slides](https://docs.google.com/presentation/d/e/2PACX-1vQ4POvCXfiL1fW5zoxpfEoOJDFNUxgbvoGKLWXuyj2rEz6I4xSeYCp9mhIFrxLfM9ckpg8zOlcDlBZ4/pub?start=false&loop=false&delayms=3000)
     - date: "June 2019"
       title: >
         Georgia Tech - Research Talk,
@@ -159,34 +148,30 @@ academic_engagements:
     - title: >
         Area Chair (AC) for ICLR, CVPR, ECCV, ICCV, WACV, ACCV.
     - title: >
-        I am the main organizer of
-        [6th BMTT MOTChallenge Workshop: Segmenting and Tracking Every Point and Pixel](https://motchallenge.net/workshops/bmtt2021)
-        at ICCV’21 workshop, and co-organizer of:
-        [7th Workshop on Benchmarking Multi-Target Tracking: How Far Can Synthetic Data Take us?](https://motchallenge.net/workshops/bmtt2022)
-        at CVPR’22,
-        [Tracking and its many guises Workshop](http://taodataset.org/workshop/) at ECCV’2020,
-        [Multi-Object Tracking and Segmentation Workshop](https://motchallenge.net/workshops/bmtt2020) at CVPR’2020.
-    - title: >
         Reviewer for (*machine learning, vision conferences*) CVPR, ECCV, ICCV, BMVC, NeurIPS, ICML, ICLR;
         (*robotics conferences*) ICRA, IROS, RSS; (*journals*) IJCV, RAL, TPAMI.
-    - title: >
-        I am in RSS Pioneers 2021 program committee and on the ECCV’24 organization team!
 
-  etc:
-    - date: "March 2024"
-      title: >
-        Our [paper](https://arxiv.org/abs/2403.13129) on *Learning to segment anything in Lidar (SAL)*
-        was featured at GTC2024! Check out the [NVIDIA AI Tools for Autonomous Vehicle Developers](https://youtu.be/LLSuUBObttE?si=WvQFphni5vX7Es5I).
-    - date: "June 2022"
-      title: >
-        Featured in the **TWIMLAI podcast**: [On the Path Towards Robot Vision](https://twimlai.com/podcast/twimlai/on-the-path-towards-robot-vision-with-aljosa-osep/).
-    - date: "August 2021"
-      title: >
-        Listed as one of three outstanding reviewers for all top-tier CV conferences in 2020/21.
-        See [the informal analysis](https://twitter.com/simon_niklaus/status/1433127773409665025?s=20) by Simon Niklaus.
-    - date: "August 2021"
-      title: >
-        Awarded Borchers Plaquette at RWTH Aachen University for outstanding doctoral dissertation.
+awards:
+  - date: "June 2024"
+    title: >
+      Granted O-1 visa for individuals with extraordinary ability in science and technology.
+  - date: "March 2024"
+    title: >
+      My work on *Learning to segment anything in Lidar (SAL)*
+      was featured at GTC2024! Check out the [NVIDIA AI Tools for Autonomous Vehicle Developers](https://youtu.be/LLSuUBObttE?si=WvQFphni5vX7Es5I).
+  - date: "June 2022"
+    title: >
+      Featured in the **TWIMLAI podcast**: [On the Path Towards Robot Vision](https://twimlai.com/podcast/twimlai/on-the-path-towards-robot-vision-with-aljosa-osep/).
+  - date: "August 2021"
+    title: >
+      Listed as one of three outstanding reviewers for all top-tier CV conferences in 2020/21.
+      See [the informal analysis](https://twitter.com/simon_niklaus/status/1433127773409665025?s=20) by Simon Niklaus.
+  - date: "August 2021"
+    title: >
+      Awarded Borchers Plaquette at RWTH Aachen University for outstanding doctoral dissertation.
+  - date: "June 2019"
+    title: >
+      Ph.D. awarded summa cum laude from RWTH Aachen University, Germany's top-ranked engineering school.
 ---
 
 

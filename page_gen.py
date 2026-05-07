@@ -71,14 +71,16 @@ links_html = metadata.get('meta', {}).get('links', '')
 
 # === Extract Dynamic Sections ===
 academic_engagements = metadata.get("academic_engagements", {})
+awards = metadata.get("awards", [])
 research_topics = metadata.get("research_topics", [])
+selected_pub_keys = metadata.get("selected_publications", [])
 
 # === Render Generic Sections ===
 def render_section(title, items):
     """Render a section with a list of items, dynamically handling fields and styling dates."""
     if not items: # Don't render the section if there are no items
         return ""
-    section_id = title.lower().replace(" ", "-")
+    section_id = re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')
     html = f'<h2 id="{section_id}">{title}</h2><ul>'
     for item in items:
         if isinstance(item, dict):
@@ -106,7 +108,7 @@ def render_section(title, items):
     return html
 
 # === Render Research Topics Section (Simplified) ===
-def render_research_topics_section(research_data):
+def render_research_topics_section(research_data, selected_html=""):
     """
     Generates HTML for the research topics section with hover popups.
     Simplified version assuming correct structure in research_data.
@@ -170,6 +172,9 @@ def render_research_topics_section(research_data):
             html += '            </div>\n' # Close popup div
             html += '        </div>\n' # Close topic-container
         html += '    </div>\n' # Close topics-grid
+    if selected_html:
+        html += '    <h3>Selected Papers</h3>\n'
+        html += f'    {selected_html}\n'
     html += '</div>\n' # Close research-topics-container
 
     return html
@@ -179,7 +184,7 @@ def render_academic_engagements(data):
     if not data:
         return ""
     html = '<h2 id="engagements">Academic Engagements</h2>\n'
-    subsections = [("talks", "Talks"), ("service", "Service"), ("etc", "Etc")]
+    subsections = [("talks", "Invited Talks"), ("service", "Service")]
     for key, label in subsections:
         items = data.get(key, [])
         if not items:
@@ -198,9 +203,9 @@ def render_academic_engagements(data):
         html += '</ul>'
     return html
 
-# Render each section
+# Render each section (research_topics_html built later, after publications are generated)
 academic_engagements_html = render_academic_engagements(academic_engagements)
-research_topics_html = render_research_topics_section(research_topics)
+awards_html = render_section("Awards & Recognition", awards)
 
 # === Navigation Bar ===
 _icon_github = (
@@ -240,7 +245,8 @@ nav_html = (
     '  <span class="nav-sections">\n'
     '    <a href="#research">Research</a>\n'
     '    <a href="#engagements">Engagements</a>\n'
-    '    <a href="#publications">Publications</a>\n'
+    '    <a href="#awards-recognition">Awards</a>\n'
+    '    <a href="#all-publications">Publications</a>\n'
     '  </span>\n'
     '  <span class="nav-icons">\n'
     f'    <a href="https://github.com/aljosaosep" target="_blank" title="GitHub">{_icon_github}</a>\n'
@@ -263,48 +269,60 @@ except Exception as e:
      bib_database = type('obj', (object,), {'entries': []})()
 
 
-publications_html = "<div class=\"thebibliography\">"
 linkable_keys = ["paper", "video", "poster", "page", "code", "blog", "teaser"]
 
-for entry in bib_database.entries:
-    # Parse and abbreviate author names
-    # Added error handling for missing 'author' key
+def abbreviate_venue(venue):
+    """Extract abbreviation from parentheses, e.g. 'Conf on X (CVPR)' -> 'CVPR'."""
+    match = re.search(r'\(([A-Z][A-Za-z0-9\-]+)\)', venue)
+    if match:
+        abbrev = match.group(1)
+        if 'oral' in venue.lower():
+            return f'{abbrev} (oral)'
+        return abbrev
+    return venue
+
+def render_pub_entry(entry):
     authors = LatexNodes2Text().latex_to_text(entry.get("author", "N/A"))
     try:
-        authors = gut.abbrev_authors(authors) # Assuming gut is correctly imported and has abbrev_authors
+        authors = gut.abbrev_authors(authors)
     except NameError:
-         print("Warning: generator_utils not found or abbrev_authors missing. Using full author list.")
-         pass # Use the raw authors if gut.abbrev_authors isn't available
-
-
-    # Determine publication type (booktitle or journal) - Added default 'N/A'
-    pub_type = entry.get("booktitle", entry.get("journal", "N/A"))
-
-    # Generate links for additional resources
+        pass
+    pub_type = abbreviate_venue(entry.get("booktitle", entry.get("journal", "N/A")))
     additional_links = "".join(
-        f'<a href=\"{entry[key]}\" target=\"_blank\">{key}</a> '
-        for key in linkable_keys if key in entry and entry[key].strip() # Check link is not empty
+        f'<a href="{entry[key]}" target="_blank">{key}</a> '
+        for key in linkable_keys if key in entry and entry[key].strip()
     )
-
-    # Handle thumbnails - Added check for empty thumb value
     thumb_file = entry.get("thumb", "default.jpg")
-    if not thumb_file.strip(): # If thumb value is empty or just whitespace
-         thumb_file = "default.jpg" # Use default if specified thumb is empty
+    if not thumb_file.strip():
+        thumb_file = "default.jpg"
+    thumb_url = f"img/thumb/{thumb_file}"
+    html  = '<div>\n'
+    html += '    <div style="float: left; margin: 5px 20px 10px 0px;">\n'
+    html += f'        <img src="{thumb_url}" width="100" height="100" style="border-radius: 6px;" />\n'
+    html += '    </div>\n'
+    html += '    <div>\n'
+    html += f'        <p class="bibitem"><span class="biblabel"></span> {authors}: <b>{entry.get("title", "No Title")}</b>, {pub_type}, {entry.get("year", "N/A")}. {additional_links}</p>\n'
+    html += '    </div>\n'
+    html += '</div><br clear="all" />\n'
+    return html
 
-    thumb_url = f"img/thumb/{thumb_file}" # Prepend the directory path
+# Selected Publications (in specified order)
+bib_by_key = {e["ID"]: e for e in bib_database.entries}
+selected_publications_html = '<div class="thebibliography">'
+for key in selected_pub_keys:
+    entry = bib_by_key.get(key)
+    if entry:
+        selected_publications_html += render_pub_entry(entry)
+selected_publications_html += '</div>'
 
-    # Generate publication entry
-    publications_html += '<div>\n'
-    publications_html += '    <div style="float: left; margin: 5px 20px 10px 0px;">\n'
-    publications_html += f'        <img src="{thumb_url}" width="200" height="200" style="border-radius: 8px;" />\n'
-    publications_html += '    </div>\n'
-    publications_html += '    <div>\n'
-    publications_html += f'        <p class="bibitem"><span class="biblabel"></span> {authors}: <b>{entry.get("title", "No Title")}</b>, {pub_type}, {entry.get("year", "N/A")}.<br>{additional_links}</p>\n'
-    publications_html += '    </div>\n'
-    publications_html += '</div><br clear="all" />\n'
-
-
+# All Publications
+publications_html = '<div class="thebibliography">'
+for entry in bib_database.entries:
+    publications_html += render_pub_entry(entry)
 publications_html += "</div>"
+
+# Research section (built here so selected_publications_html is available)
+research_topics_html = render_research_topics_section(research_topics, selected_publications_html)
 
 
 # === HTML Page Assembly ===
@@ -327,7 +345,8 @@ body = (
     f'{nav_html}\n'
     f'{research_topics_html}\n'
     f'{academic_engagements_html}\n'
-    f'<h2 id="publications">Publications</h2>{publications_html}\n'
+    f'{awards_html}\n'
+    f'<h2 id="all-publications">All Publications</h2>{publications_html}\n'
     '</body>\n'
     '</html>'
 )
