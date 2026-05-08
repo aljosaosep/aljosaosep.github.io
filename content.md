@@ -175,6 +175,6 @@ awards:
 ---
 
 
-Hi, I'm Aljosa! I am a Senior Research Scientist at NVIDIA, working on learning to understand the dynamic world from raw, unlabeled streams of sensory data.
+Hi, I'm Aljosa! I come from the Alpine side of Slovenia. I am a Senior Research Scientist at NVIDIA, alum *University of Bonn*, *RWTH Aachen University*, *TU Munich* & *Robotics Institute, Carnegie Mellon University*.
 
-I come from the Alpine side of Slovenia. I earned my Ph.D. from RWTH Aachen University under the supervision of [Prof. Bastian Leibe](https://www.vision.rwth-aachen.de/person/1/). I was a postdoctoral fellow at the Technical University of Munich and the Robotics Institute, Carnegie Mellon University.
+I started this journey during my Ph.D. at RWTH Aachen University with development of joint, 3D stereo-based geometry, ego pose and object tracking, starting with [canonical objects](https://arxiv.org/abs/1809.07357), and pushed the frontier towards [tracking and reconstruction of any object](https://arxiv.org/abs/1712.07920) — demonstrating these pipelines can power [data auto-labeling](https://arxiv.org/abs/2403.13129). I am continuing this journey at NVIDIA, turning years of academic foundations into [real-world systems at scale](https://youtu.be/LLSuUBObttE?si=WvQFphni5vX7Es5I).
