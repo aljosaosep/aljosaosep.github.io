@@ -171,12 +171,12 @@ awards:
       Awarded Borchers Plaquette at RWTH Aachen University for outstanding doctoral dissertation.
   - date: "June 2019"
     title: >
-      Ph.D. awarded summa cum laude from RWTH Aachen University, Germany's top-ranked engineering school.
+      Defended my Ph.D thesis "with highest honor" (summa cum laude) at RWTH Aachen University, Germany's top-ranked engineering school.
 ---
 
 
 Hi, I'm Aljosa! I come from the Alpine side of Slovenia. I am a Senior Research Scientist at NVIDIA, alum *University of Bonn*, *RWTH Aachen University*, *TU Munich* & *Robotics Institute, Carnegie Mellon University*.
 
-I started this journey during my Ph.D. at RWTH Aachen University with development of joint, 3D stereo-based geometry, ego pose and object tracking, starting with [canonical objects](https://arxiv.org/abs/1809.07357), and pushed the frontier towards [tracking and reconstruction of any object](https://arxiv.org/abs/1712.07920) — demonstrating these pipelines can power [data auto-labeling](https://arxiv.org/abs/2403.13129). I am continuing this journey at NVIDIA, turning years of my [foundational academic work in video-based reconstruction, tracking and object mining and autolabeling](rss_2020_camready.html) into [real-world systems at scale](https://youtu.be/LLSuUBObttE?si=WvQFphni5vX7Es5I).
+I started my journey during my Ph.D. at RWTH Aachen University with development of joint, 3D stereo-based geometry, ego pose and object tracking, starting with [canonical objects](https://arxiv.org/abs/1809.07357), and pushed the frontier towards [tracking and reconstruction of any object](https://arxiv.org/abs/1712.07920) — demonstrating these pipelines can power [data auto-labeling](https://arxiv.org/abs/2403.13129). I am continuing this journey at NVIDIA, turning years of my [foundational academic work in video-based reconstruction, tracking and object mining and autolabeling](rss_2020_camready.html) into [real-world systems at scale](https://youtu.be/LLSuUBObttE?si=WvQFphni5vX7Es5I).
 
 Looking ahead, I believe the next frontier is memory: future agents will need to operate not for seconds, but over a lifetime. I lay out this vision in my [research statement (2023)](assets/research_2023.pdf), establishing (implicit) visual tracking as the key mechanism for building structured, queryable memory at test time. Our recent work on [scalable feed-forward 3D reconstruction](https://research.nvidia.com/labs/dvl/projects/vgg-ttt) is a step in this direction.
